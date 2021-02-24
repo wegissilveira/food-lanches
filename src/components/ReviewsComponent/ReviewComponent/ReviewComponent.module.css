@@ -1,0 +1,15 @@
+.Review-container {
+    margin: 0 20px;
+    color: white;
+    /* text-align: center; */
+}
+
+.Review-container p {
+    margin: 0;
+    font-style: italic;
+}
+
+.Review-container strong {
+    display: inline-block;
+    margin-top: 20px;
+}

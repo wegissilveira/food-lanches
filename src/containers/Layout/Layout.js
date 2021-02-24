@@ -1,15 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
 import classes from './Layout.module.css'
 
 import Header from '../Header/Header'
+import CustomerReviews from '../CustomerReviews/CustomerReviews'
 
 
 
 class Layout extends Component {
     render() {
         return (
-            <Header />
+            <Fragment>
+                <Header />
+                <CustomerReviews />
+            </Fragment>
         )
     }
 }

@@ -1,0 +1,22 @@
+.SliderMarkers-container {
+    display: flex;
+    justify-content: center;
+}
+
+.SliderMarkers-container > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.SliderMarkers-marker {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
