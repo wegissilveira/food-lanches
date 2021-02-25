@@ -1,0 +1,14 @@
+.Menu-container {
+    background: url('../../assets/images/menu_bg.jpg') 50% 0 / cover no-repeat;
+    height: 50vh;
+}
+
+.Menu-container > h2 {
+    color: #F5C662;
+    margin: 0;
+}
+
+/* TEMPORÁRIO */
+.Menu-container > p {
+    color: #FFF;
+}
