@@ -1,0 +1,20 @@
+.Menu-header {
+    color: green;
+    display: flex;
+    justify-content: space-between;
+    
+    transition: 1s ease-in-out;
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -ms-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+}
+
+.Menu-header > div {
+    text-align: center;
+    width: 100%;
+}
+
+.Menu-header > div > h2 {
+    text-align: center;
+}
