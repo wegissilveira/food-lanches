@@ -56,12 +56,13 @@ const MenuComponent = props => {
                     <h2>BEBIDAS</h2>
                 </div>
             </div>
-            <button onClick={() => passMenuHandler('previous')}>atrás</button>
-            <button onClick={() => passMenuHandler('next')}>frente</button>
+            
             <MenuOptionsComponent 
                 windowWidth={windowWidth}
                 headerTab={headerTab[headerTabRef]}
             />
+            {/* <button onClick={() => passMenuHandler('previous')}>atrás</button>
+            <button onClick={() => passMenuHandler('next')}>frente</button> */}
         </div>
     )
 }

@@ -1,5 +1,5 @@
 .Menu-header {
-    color: green;
+    color: #F5C662;
     display: flex;
     justify-content: space-between;
     
@@ -17,4 +17,5 @@
 
 .Menu-header > div > h2 {
     text-align: center;
+    border-bottom: 0;
 }

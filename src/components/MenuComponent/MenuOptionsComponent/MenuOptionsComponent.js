@@ -7,7 +7,7 @@ import optionsData from '../../../Data/optionsData'
 
 const MenuOptionsComponent = props => {
 
-    let [optionsWidth, ] = React.useState(props.windowWidth * 3)
+    let [optionsWidth, setOptionsWidth] = React.useState(0)
     let [translateValue, setTranslateValue] = React.useState(0)
 
 
@@ -24,8 +24,7 @@ const MenuOptionsComponent = props => {
 
         if (dir === 'previous' && translateValue < 0) {
             setTranslateValue(translateValue + props.windowWidth)
-        }
-        
+        }        
     }
 
     let optionsArr = []
@@ -35,14 +34,13 @@ const MenuOptionsComponent = props => {
         }
     })
 
-    optionsArr.forEach((t, i) => {
-        // console.log(optionsArr.length === i+1)
-        // console.log(i-1)
-        // console.log(optionsArr.length)
-    })
-    
+    //Altera o width de acordo com a quantidade de itens
+    React.useEffect(() => {
+        setOptionsWidth(props.windowWidth * (Math.ceil(optionsArr.length / 3)))
+        setTranslateValue(0)
+    }, [optionsArr.length, props.windowWidth, props.headerTab])
 
-    console.log(optionsArr.length - 1)
+
 
     return (
         <Fragment>
