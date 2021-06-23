@@ -1,0 +1,89 @@
+.Contact-container {
+    background-color: #991C1E;
+    color: #F5C662;
+}
+
+.Contact-subContainer {
+    margin: 0 10px;
+}
+
+.Contact-subContainer h1 {
+    margin: 0;
+    text-align: center;
+}
+
+.Contact-subContainer > p {
+    text-align: center;
+}
+
+.Contact-subContainer p {
+    font-weight: bold;
+}
+
+.Contact-header {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.Contact-header div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.Contact-header div:nth-of-type(2) {
+    width: 50%;
+    margin-left: 25%;
+}
+
+.Contact-header svg {
+   color: #0C5506;
+}
+
+.Contact-header p {
+   margin: 10px 0;
+}
+
+.Contact-subContainer form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    color: #F5C662;
+    background-color: #713320;
+    font-weight: 500;
+    margin: 8px 0;
+    padding-left: 15px;
+    height: 30px;
+
+    border: none;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+input::placeholder, ::placeholder {
+    color: #F5C662;
+}
+
+textarea {
+    height: 80px;
+}
+
+button {
+    margin: 15px 0;
+    height: 40px;
+    color: #713320;
+    background-color: #F5C662;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}

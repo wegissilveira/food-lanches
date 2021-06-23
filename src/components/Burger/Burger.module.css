@@ -1,18 +1,18 @@
 .Burger-container {
-    background-color: #C54646;
-    background-color: #3E2113;
+    background-color: #991C1E;
+}
+
+.Burger-container div {
     background-color: #991C1E;
 }
 
 .Burger-container h2 {
     margin-top: 0;
     margin-bottom: 0;
-    /* padding-top: 10px; */
     text-align: center;
     font-size: 25px;
     color: #F5C662;
     position: relative;
-    /* z-index: 9999; */
 }
 
 .Burger-container div:nth-child(3) img {

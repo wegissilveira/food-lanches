@@ -1,0 +1,35 @@
+.Footer-container {
+    height: 30vh;
+    background-color: #F5C662;
+    color: #713320;
+    position: relative;
+}
+
+.Footer-subContainer h2 {
+    margin: 0;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.Footer-icons--container {
+    color: #991C1E;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Footer-brand {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+.Footer-brand p {
+    text-align: center;
+}
+
+.Footer-brand span {
+    text-decoration: underline;
+}

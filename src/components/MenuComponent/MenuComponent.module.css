@@ -11,11 +11,13 @@
 }
 
 .Menu-header > div {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
 }
 
 .Menu-header > div > h2 {
-    text-align: center;
     border-bottom: 0;
+    margin-left: 10px;
 }

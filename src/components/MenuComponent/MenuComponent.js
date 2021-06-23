@@ -2,6 +2,8 @@ import React from 'react'
 
 import classes from './MenuComponent.module.css'
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import MenuOptionsComponent from './MenuOptionsComponent/MenuOptionsComponent'
 
 
@@ -47,12 +49,24 @@ const MenuComponent = props => {
                 style={headerStyle}    
             >
                 <div>
+                    <FontAwesomeIcon
+                        icon={['fas', 'hamburger']} 
+                        size="2x"
+                    />
                     <h2>SANDUÍCHES</h2>
                 </div>
                 <div>
+                    <FontAwesomeIcon
+                        icon={['fas', 'pizza-slice']} 
+                        size="2x"
+                    />
                     <h2>PIZZAS</h2>
                 </div>
                 <div>
+                    <FontAwesomeIcon
+                        icon={['fas', 'cocktail']} 
+                        size="2x"
+                    />
                     <h2>BEBIDAS</h2>
                 </div>
             </div>

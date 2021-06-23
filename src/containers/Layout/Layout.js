@@ -7,6 +7,8 @@ import CustomerReviews from '../CustomerReviews/CustomerReviews'
 import Menu from '../Menu/Menu'
 import SobreNos from '../../components/SobreNos/SobreNos'
 import Burger from '../../components/Burger/Burger'
+import Contact from '../../components/Contact/Contact'
+import Footer from '../../components/Footer/Footer'
 
 
 
@@ -19,6 +21,8 @@ class Layout extends Component {
                 <Menu />
                 <SobreNos />
                 <Burger />
+                <Contact />
+                <Footer />
             </Fragment>
         )
     }
