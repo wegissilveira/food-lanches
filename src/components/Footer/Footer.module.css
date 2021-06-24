@@ -20,6 +20,13 @@
     justify-content: space-between;
 }
 
+@media (min-width: 768px) {
+    .Footer-icons--container {
+        width: 50%;
+        margin-left: 25%;
+    }
+}
+
 .Footer-brand {
     position: absolute;
     bottom: 10px;

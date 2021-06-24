@@ -1,7 +1,6 @@
 .Reviews-container {
     display: flex;
     justify-content: space-between;
-    /* width: 1080px; */
     
     transition: 0.5s;
     -webkit-transition: 0.5s;
@@ -13,7 +12,14 @@
 .Review-container {
     margin: 0 20px;
     color: white;
-    /* text-align: center; */
+}
+
+@media (min-width: 480px) {
+    .Review-container {
+        font-size: 1.3em;
+        margin: 0 20px;
+        color: white;
+    }
 }
 
 .Review-container p {
