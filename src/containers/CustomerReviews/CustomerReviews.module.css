@@ -5,11 +5,11 @@
     align-items: center;
 }
 
-.Reviews-container {
+.Reviews-section--container {
     height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    /* align-items: center; */
     overflow: hidden;
 }

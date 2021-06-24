@@ -1,11 +1,27 @@
 .Reviews-container {
     display: flex;
     justify-content: space-between;
-    width: 1080px;
+    /* width: 1080px; */
     
     transition: 0.5s;
     -webkit-transition: 0.5s;
     -moz-transition: 0.5s;
     -ms-transition: 0.5s;
     -o-transition: 0.5s;
+}
+
+.Review-container {
+    margin: 0 20px;
+    color: white;
+    /* text-align: center; */
+}
+
+.Review-container p {
+    margin: 0;
+    font-style: italic;
+}
+
+.Review-container strong {
+    display: inline-block;
+    margin-top: 20px;
 }

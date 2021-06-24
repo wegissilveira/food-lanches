@@ -21,7 +21,7 @@ const MenuComponent = props => {
         transform: `translateX(${translateValue}px)`
     }
 
-    const passMenuHandler = (dir) => {
+    const passMenuHandler = dir => {
 
         let newTranslateValue = translateValue
         let newHeaderTabHeader = headerTabRef
