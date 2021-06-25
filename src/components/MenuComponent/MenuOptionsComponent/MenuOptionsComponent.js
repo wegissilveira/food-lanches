@@ -36,9 +36,20 @@ const MenuOptionsComponent = props => {
 
     //Altera o width de acordo com a quantidade de itens
     React.useEffect(() => {
-        setOptionsWidth(props.windowWidth * (Math.ceil(optionsArr.length / 3)))
+
+        let newWidth = props.windowWidth * (Math.ceil(optionsArr.length / 3))
+
+        if (props.windowWidth >= 768) {
+            newWidth = newWidth / 3 
+        } 
+
+        setOptionsWidth(newWidth)
         setTranslateValue(0)
     }, [optionsArr.length, props.windowWidth, props.headerTab])
+
+    // console.log(optionsWidth)
+    // console.log(optionsArr.length)
+    // console.log(Math.ceil(optionsArr.length / 3))
 
 
 

@@ -20,6 +20,12 @@
     align-items: center;
 }
 
+/* @media (min-width: 768px) {
+    .Options-container > div {
+        width: 40%;
+    }
+} */
+
 .Options-container > div :first-child {
     margin-top: 0;
 }

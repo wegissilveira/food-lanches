@@ -2,11 +2,17 @@
     background-color: #991C1E;
 }
 
-.Burger-container div {
+.Burger-subContainer--mobile {
     background-color: #991C1E;
 }
 
-.Burger-container h2 {
+@media (min-width: 768px) {
+    .Burger-subContainer--mobile {
+        display: none;
+    }
+}
+
+.Burger-subContainer--mobile h2 {
     margin-top: 0;
     margin-bottom: 0;
     text-align: center;
@@ -15,11 +21,100 @@
     position: relative;
 }
 
-.Burger-container div:nth-child(3) img {
+.Burger-subContainer--mobile div:nth-child(3) img {
     margin-top: -67px;
 }
 
-.Burger-container img {
+.Burger-subContainer--mobile img {
     max-width: 100%;
     margin-top: -34px;
+}
+
+.Burger-subContainer {
+    display: none;
+    /* position: relative; */
+}
+
+.Burger-subContainer > div {
+    /* position: absolute; */
+    top: 20px;
+}
+
+.Burger-subContainer h1 {
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .Burger-subContainer {
+        display: block;
+        /* background: url('../../assets/images/burger-bg.jpg') 50% / cover no-repeat fixed;
+        background-color: rgba(221, 216, 216, 0.288);
+        background-blend-mode: overlay; */
+    }
+}
+
+.Burger-subContainer > div:first-child {
+    /* width: 50%;
+    margin-left: 25%;
+    padding-top: 20px;
+    text-align: center; */
+    background: url('../../assets/images/burger-bg.jpg') 50% / cover no-repeat fixed;
+        background-color: rgba(221, 216, 216, 0.288);
+        background-blend-mode: overlay;
+}
+
+.Burger-subContainer > div:first-child > div {
+    width: 50%;
+    margin-left: 25%;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.Burger-header {
+    background-color: #d3971525;
+}
+
+.Burger-header h1 {
+    color: #F5C662;
+    margin: 0;
+    /* padding-top: 20px; */
+    font-size: 1.9em;
+}
+
+.Burger-header p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.Burger-subContainer > div img {
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+.Burger-subContainer > div:nth-child(2) {
+    background-color: #3E2113;
+}
+
+.Burger-subContainer > div:nth-child(2) > div {
+    width: 90%;
+    margin-left: 5%;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Burger-subContainer > div:nth-child(2) h1 {
+    text-align: center;
+    color: #F5C662;
+}
+
+.Burger-subContainer > div:nth-child(2) p {
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.Burger-subContainer > div:nth-child(2) img {
+    max-width: 50%;
 }
