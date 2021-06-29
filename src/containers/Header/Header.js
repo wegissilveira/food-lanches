@@ -11,6 +11,7 @@ class Header extends Component {
             <div className={classes['Header-container']}>
                 <Navigation />
                 <h1 className={classes['Header-title']}>NOSSOS LANCHES SÃO <span>APAIXONANTES</span></h1>
+                <p>A Food Lanches possui o lanche certo, na hora certa e com o preço certo para você</p>
             </div>
         )
     }

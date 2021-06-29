@@ -32,11 +32,9 @@
 
 .Burger-subContainer {
     display: none;
-    /* position: relative; */
 }
 
 .Burger-subContainer > div {
-    /* position: absolute; */
     top: 20px;
 }
 
@@ -47,17 +45,10 @@
 @media (min-width: 768px) {
     .Burger-subContainer {
         display: block;
-        /* background: url('../../assets/images/burger-bg.jpg') 50% / cover no-repeat fixed;
-        background-color: rgba(221, 216, 216, 0.288);
-        background-blend-mode: overlay; */
     }
 }
 
 .Burger-subContainer > div:first-child {
-    /* width: 50%;
-    margin-left: 25%;
-    padding-top: 20px;
-    text-align: center; */
     background: url('../../assets/images/burger-bg.jpg') 50% / cover no-repeat fixed;
         background-color: rgba(221, 216, 216, 0.288);
         background-blend-mode: overlay;
@@ -77,7 +68,6 @@
 .Burger-header h1 {
     color: #F5C662;
     margin: 0;
-    /* padding-top: 20px; */
     font-size: 1.9em;
 }
 
@@ -104,14 +94,16 @@
     justify-content: space-between;
 }
 
+.Burger-header--lanches {
+    margin-right: 10px;
+}
+
 .Burger-subContainer > div:nth-child(2) h1 {
-    text-align: center;
     color: #F5C662;
 }
 
 .Burger-subContainer > div:nth-child(2) p {
     font-size: 1.2em;
-    margin-right: 10px;
     color: #fff;
 }
 

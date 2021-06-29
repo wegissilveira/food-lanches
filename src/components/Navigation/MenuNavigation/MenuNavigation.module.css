@@ -1,0 +1,37 @@
+.MenuNavigation-container {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+}
+
+@media (min-width: 1200px) {
+    .MenuNavigation-container {
+        display: flex;
+    }
+}
+
+.Navigation-title {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.Navigation-title p {
+    margin: 0;
+    font-weight: bold;
+    color: #F5C662;
+}
+
+.Navigation-title p:first-child {
+    margin: 0;
+    font-weight: unset;
+    color: #991C1E;
+}
+
+.Navigation-icons {
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+    color: #991C1E;
+}

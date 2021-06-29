@@ -38,7 +38,7 @@ const Burger = props => {
                 </div>
                 <div>
                     <div>
-                        <div>
+                        <div className={classes['Burger-header--lanches']}>
                             <h1>Incríveis Lanches Naturais</h1>
                             <p>Possuímos uma quase incontável gama de hambúrgueres artesanais desenvolvidos ao longo de vários anos de experiência. Todos os hambúrgueres são criados com carnes de primeira, selecionadas individualmente por nossos profissionais especializados.</p>
                         </div>

@@ -6,8 +6,8 @@ import classes from './Logo.module.css'
 
 const Logo = props => {
     return (
-        <div>
-            <h2 className={classes['Logo']}>Food</h2>
+        <div className={classes['Logo']}>
+            <h2>Food</h2>
         </div>
     )
 }
