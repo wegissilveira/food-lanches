@@ -47,10 +47,6 @@ const MenuOptionsComponent = props => {
         setTranslateValue(0)
     }, [optionsArr.length, props.windowWidth, props.headerTab])
 
-    // console.log(optionsWidth)
-    // console.log(optionsArr.length)
-    // console.log(Math.ceil(optionsArr.length / 3))
-
 
 
     return (

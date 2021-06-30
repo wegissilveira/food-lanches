@@ -2,11 +2,13 @@ import React from 'react'
 
 import classes from './ReviewsComponent.module.css'
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 const ReviewsComponent = props => {
 
     let [windowWidth, ] = React.useState(window.innerWidth)
-    let [reviewsWidth, ] = React.useState(windowWidth * props.reviews.length)
+    let [reviewsWidth, setReviewsWidth] = React.useState(0)
     let [translateValue, setTranslateValue] =  React.useState(0)
     let [reviewsIndex, setReviewIndex] = React.useState(props.reviewsIndex)
 
@@ -22,12 +24,22 @@ const ReviewsComponent = props => {
         let newReviewIndex = reviewsIndex
 
         if (dir === 'next' && translateValue > ((reviewsWidth - windowWidth) * -1)) {
-            newTranslateValue = newTranslateValue - windowWidth
+            
+            if (windowWidth >= 1200) {
+                newTranslateValue = newTranslateValue - (windowWidth / 3)
+            } else {
+                newTranslateValue = newTranslateValue - windowWidth
+            }
             newReviewIndex++
         } 
 
         if (dir === 'previous' && translateValue < 0) {
-            newTranslateValue = newTranslateValue + windowWidth
+            
+            if (windowWidth >= 1200) {
+                newTranslateValue = newTranslateValue + (windowWidth / 3)
+            } else {
+                newTranslateValue = newTranslateValue + windowWidth
+            }
             newReviewIndex--
         }
 
@@ -35,6 +47,16 @@ const ReviewsComponent = props => {
         setReviewIndex(newReviewIndex)
         props.setReviewIndex(newReviewIndex)
     }
+
+    React.useEffect(() => {
+        let newWidth = windowWidth * props.reviews.length
+
+        if (windowWidth >= 1200) {
+            newWidth = newWidth / 3
+        }
+        
+        setReviewsWidth(newWidth)
+    }, [props.reviews.length, windowWidth])
 
 
 
@@ -47,15 +69,34 @@ const ReviewsComponent = props => {
             >
                 {
                     props.reviews.map((customer, i) => {
-                        return <div key={`${i}-${customer}`} className={classes['Review-container']}>
+                        return <div 
+                                    key={`${i}-${customer}`} 
+                                    className={classes['Review-container']}
+                                >   
+                                    {customer.sexo === 'masculino' ? 
+                                        <img src={require('../../assets/icons/man.svg').default} alt="Ícone Homem" /> 
+                                        :
+                                        <img src={require('../../assets/icons/woman.svg').default} alt="Ícone Mulher" /> 
+                                    }
                                     <p>{customer.texto}</p>
                                     <strong>{customer.nome}</strong>
                                 </div>
                     })
-               }
+                }
+                
             </div>
-            {/* <button onClick={() => passMenuHandler('previous')}>Trás</button>
-            <button onClick={() => passMenuHandler('next')}>Frente</button> */}
+            <div className={classes['Reviews-arrows--container']}>
+                <FontAwesomeIcon 
+                    icon={['fas', 'chevron-left']} 
+                    size="3x"
+                    onClick={() => passMenuHandler('previous')}
+                />
+                <FontAwesomeIcon 
+                    icon={['fas', 'chevron-right']} 
+                    size="3x"
+                    onClick={() => passMenuHandler('next')}
+                />
+            </div>
         </React.Fragment>
         
     )

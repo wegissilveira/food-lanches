@@ -17,7 +17,9 @@ import {
   faEnvelope,
   faHamburger,
   faPizzaSlice,
-  faCocktail
+  faCocktail,
+  faChevronLeft,
+  faChevronRight
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -32,7 +34,9 @@ library.add(
   faEnvelope,
   faHamburger,
   faPizzaSlice,
-  faCocktail
+  faCocktail,
+  faChevronLeft,
+  faChevronRight
 )
 
 

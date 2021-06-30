@@ -5,11 +5,24 @@
     align-items: center;
 }
 
+@media (min-width:1200px) {
+    .Reviews-section {
+        height: 60vh;
+    }
+}
+
 .Reviews-section--container {
     height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    /* align-items: center; */
     overflow: hidden;
+}
+
+@media (min-width:1200px) {
+    .Reviews-section--container {
+        height: 90%;
+        width: 100%;
+        position: relative;
+    }
 }
