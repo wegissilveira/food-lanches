@@ -9,6 +9,12 @@
     -o-transition: 1s ease-in-out;
 }
 
+@media (min-width:1200px) {
+    .Options-container {
+        margin-top: 50px;
+    }
+}
+
 .Options-container > div {
     width: 100%;
     color: #fff;

@@ -10,7 +10,7 @@ import MenuOptionsComponent from './MenuOptionsComponent/MenuOptionsComponent'
 const MenuComponent = props => {
 
     let [windowWidth, ] = React.useState(window.innerWidth)
-    let [headerWidth, ] = React.useState(windowWidth * 3)
+    let [headerWidth, setHeaderWidth] = React.useState(0)
     let [headerTab, setHeaderTab] =  React.useState(['sanduíches', 'pizzas', 'bebidas'])
     let [headerTabRef, setHeaderTabRef] = React.useState(0)
     let [translateValue, setTranslateValue] = React.useState(0)
@@ -40,29 +40,42 @@ const MenuComponent = props => {
         setHeaderTabRef(newHeaderTabHeader)
     }
 
+    React.useEffect(() => {
+        let newHeaderWidth
+
+        if (windowWidth >= 1200) {
+            newHeaderWidth = '60%'
+        } else {
+            newHeaderWidth = windowWidth * 3
+        }
+
+        setHeaderWidth(newHeaderWidth)
+    }, [windowWidth])
+
+
     
     return (
         
-        <div>
+        <div className={classes['Menu-subContainer']}>
             <div 
                 className={classes['Menu-header']}
                 style={headerStyle}    
             >
-                <div>
+                <div className={classes['Header-item']}>
                     <FontAwesomeIcon
                         icon={['fas', 'hamburger']} 
                         size="2x"
                     />
                     <h2>SANDUÍCHES</h2>
                 </div>
-                <div>
+                <div className={classes['Header-item']}>
                     <FontAwesomeIcon
                         icon={['fas', 'pizza-slice']} 
                         size="2x"
                     />
                     <h2>PIZZAS</h2>
                 </div>
-                <div>
+                <div className={classes['Header-item']}>
                     <FontAwesomeIcon
                         icon={['fas', 'cocktail']} 
                         size="2x"

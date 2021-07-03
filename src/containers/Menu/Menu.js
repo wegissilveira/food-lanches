@@ -12,6 +12,7 @@ class Menu extends Component {
             
             <div className={classes['Menu-container']}>
                 <h1>CARDÁPIO</h1>
+                <p>Nosso cardápio. Abra, escolha a melhor opção para você e se <br/> prepare para um grande experiência</p>
                 <MenuComponent />
             </div>
         )

@@ -5,6 +5,12 @@
     overflow: hidden;
 }
 
+@media (min-width:1200px) {
+    .Menu-container {
+        height: 80vh;
+    }
+}
+
 .Menu-container > h1 {
     color: #F5C662;
     margin: 0;
@@ -12,18 +18,26 @@
     text-align: center;
 }
 
-.Menu-container > h1:after {
-    content: ""; 
-    display: block;
-    margin: 0 auto; 
-    width: 15%;
-    padding-top: 5px;
-    border-bottom: 1px solid #F5C662; 
+@media (min-width:1200px) {
+    .Menu-container > h1 {
+        margin-top: 50px;
+    }
+
+    .Menu-container > h1:after {
+        content: ""; 
+        display: block;
+        margin: 0 auto; 
+        width: 15%;
+        padding-top: 5px;
+        border-bottom: 1px solid #F5C662; 
+    }
 }
 
 
 /* TEMPORÁRIO */
 .Menu-container > p {
-    color: #FFF;
+    color: #fff;
+    text-align: center;
+    font-size: 1.2em;
 }
 
