@@ -12,6 +12,8 @@
 @media (min-width:1200px) {
     .Options-container {
         margin-top: 50px;
+        z-index: 8888;
+        position: relative;
     }
 }
 
@@ -24,6 +26,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@media (min-width:1200px) {
+    .Options-container > div {
+        color: #F5C662;
+    }
 }
 
 /* @media (min-width: 768px) {

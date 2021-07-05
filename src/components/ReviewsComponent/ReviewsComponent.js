@@ -2,6 +2,8 @@ import React from 'react'
 
 import classes from './ReviewsComponent.module.css'
 
+import PassSlidesArrows from '../UI/PassSlidesArrows/PassSlidesArrows';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
@@ -85,7 +87,7 @@ const ReviewsComponent = props => {
                 }
                 
             </div>
-            <div className={classes['Reviews-arrows--container']}>
+            {/* <div className={classes['Reviews-arrows--container']}>
                 <FontAwesomeIcon 
                     icon={['fas', 'chevron-left']} 
                     size="3x"
@@ -96,7 +98,8 @@ const ReviewsComponent = props => {
                     size="3x"
                     onClick={() => passMenuHandler('next')}
                 />
-            </div>
+            </div> */}
+            <PassSlidesArrows passSlidesFn={arg => passMenuHandler(arg)} />
         </React.Fragment>
         
     )

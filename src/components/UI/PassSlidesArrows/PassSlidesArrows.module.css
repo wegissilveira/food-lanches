@@ -1,0 +1,22 @@
+.Reviews-arrows--container {
+    display: none;
+    justify-content: space-between;
+    width: 96%;
+    margin-left: 2%;
+    position: absolute;
+    bottom: 25px;
+    color: #fff;
+}
+
+.Reviews-arrows--container > svg {
+    cursor: pointer;
+    z-index: 9999;
+    position: relative;
+}
+
+@media (min-width:1200px) {
+    .Reviews-arrows--container {
+        display: flex;
+    }
+    
+}

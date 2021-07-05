@@ -40,15 +40,19 @@ const optionsData = [
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 10',
+        prod: 'Sanduíche 11',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 10',
+        prod: 'Sanduíche 12',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 10',
+        prod: 'Sanduíche 13',
+        cat: 'sanduíches',
+    },
+    {
+        prod: 'Sanduíche 14',
         cat: 'sanduíches',
     },
     {

@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 
 import classes from './MenuOptionsComponent.module.css'
 
+import PassSlidesArrows from '../../UI/PassSlidesArrows/PassSlidesArrows'
+
 import optionsData from '../../../Data/optionsData'
 
 
@@ -9,6 +11,7 @@ const MenuOptionsComponent = props => {
 
     let [optionsWidth, setOptionsWidth] = React.useState(0)
     let [translateValue, setTranslateValue] = React.useState(0)
+    let [arrows, setArrows] = React.useState([])
 
 
     const optionsStyle = {
@@ -16,15 +19,35 @@ const MenuOptionsComponent = props => {
         transform: `translateX(${translateValue}px)`
     }
 
-    const passMenuOptionsHandler = (dir) => {
-
+    const passMenuOptionsHandler = dir => {
         if (dir === 'next' && translateValue > (optionsWidth * -1) + props.windowWidth) {
             setTranslateValue(translateValue - props.windowWidth)
-        } 
-
-        if (dir === 'previous' && translateValue < 0) {
+            disableArrows()
+        } else if (dir === 'previous' && translateValue < 0) {
             setTranslateValue(translateValue + props.windowWidth)
-        }        
+            disableArrows()
+        }  
+    }
+
+    const disableArrows = () => {
+        let newArrows = [...arrows]
+        if (translateValue > (optionsWidth * -1) + props.windowWidth) {
+            newArrows[1] = false
+            console.log('teste1')
+        } else {
+            newArrows[1] = true
+            console.log('teste2')
+        }
+
+        if (translateValue < 0) {
+            newArrows[0] = false
+            console.log('teste3')
+        } else {
+            newArrows[0] = true
+            console.log('teste4')
+        }
+        setArrows(newArrows)
+        
     }
 
     let optionsArr = []
@@ -36,7 +59,6 @@ const MenuOptionsComponent = props => {
 
     //Altera o width de acordo com a quantidade de itens
     React.useEffect(() => {
-
         let newWidth = props.windowWidth * (Math.ceil(optionsArr.length / 3))
 
         if (props.windowWidth >= 768) {
@@ -47,7 +69,12 @@ const MenuOptionsComponent = props => {
         setTranslateValue(0)
     }, [optionsArr.length, props.windowWidth, props.headerTab])
 
+    React.useEffect(() => disableArrows(), [])
 
+    console.log(translateValue)
+    console.log(translateValue < 0)
+    // console.log(translateValue > (optionsWidth * -1) + props.windowWidth)
+    
 
     return (
         <Fragment>
@@ -91,6 +118,12 @@ const MenuOptionsComponent = props => {
             </div>
             {/* <button onClick={() => passMenuOptionsHandler('previous')}>atrás</button>
             <button onClick={() => passMenuOptionsHandler('next')}>frente</button> */}
+            <PassSlidesArrows 
+                passSlidesFn={arg => passMenuOptionsHandler(arg)}
+                color={'#F5C662'}
+                bt={'-35px'}
+                active={arrows}
+            />
         </Fragment>
     )
 }

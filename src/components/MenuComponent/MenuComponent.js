@@ -15,13 +15,15 @@ const MenuComponent = props => {
     let [headerTabRef, setHeaderTabRef] = React.useState(0)
     let [translateValue, setTranslateValue] = React.useState(0)
 
+    const subContainer = React.createRef()
+
 
     const headerStyle = {
         width: headerWidth,
         transform: `translateX(${translateValue}px)`
     }
 
-    const passMenuHandler = dir => {
+    const passMenuMobileHandler = dir => {
 
         let newTranslateValue = translateValue
         let newHeaderTabHeader = headerTabRef
@@ -40,6 +42,30 @@ const MenuComponent = props => {
         setHeaderTabRef(newHeaderTabHeader)
     }
 
+    const passMenuHandler = i => {
+        setHeaderTabRef(i)
+
+        const subContainerElementArr = [].slice.call(subContainer.current.children)
+
+        subContainerElementArr.forEach((el, idx) => {
+            if (idx === i) {
+                el.style.color = '#991C1E'
+                // el.classList.remove(classes['Header-item'])
+                el.classList.add(classes['Header-item-alt'])
+            } else {
+                el.style.color = '#F5C662'
+                el.classList.remove(classes['Header-item-alt'])
+            }
+        })
+
+        // subContainerElement[i].style.color = 'blue'
+
+        // console.log(subContainerElementArr)
+
+        // let after = window.getComputedStyle(subContainerElementArr[i],':after')
+        // console.log(after['content'])
+    }
+
     React.useEffect(() => {
         let newHeaderWidth
 
@@ -53,29 +79,33 @@ const MenuComponent = props => {
     }, [windowWidth])
 
 
+   
+
+
     
     return (
         
         <div className={classes['Menu-subContainer']}>
             <div 
                 className={classes['Menu-header']}
-                style={headerStyle}    
+                style={headerStyle} 
+                ref={subContainer}   
             >
-                <div className={classes['Header-item']}>
+                <div className={[classes['Header-item'], classes['Header-item-alt']].join(' ')} onClick={() => passMenuHandler(0)}>
                     <FontAwesomeIcon
                         icon={['fas', 'hamburger']} 
                         size="2x"
                     />
                     <h2>SANDUÍCHES</h2>
                 </div>
-                <div className={classes['Header-item']}>
+                <div className={classes['Header-item']} onClick={() => passMenuHandler(1)}>
                     <FontAwesomeIcon
                         icon={['fas', 'pizza-slice']} 
                         size="2x"
                     />
                     <h2>PIZZAS</h2>
                 </div>
-                <div className={classes['Header-item']}>
+                <div className={classes['Header-item']} onClick={() => passMenuHandler(2)}>
                     <FontAwesomeIcon
                         icon={['fas', 'cocktail']} 
                         size="2x"
@@ -88,8 +118,8 @@ const MenuComponent = props => {
                 windowWidth={windowWidth}
                 headerTab={headerTab[headerTabRef]}
             />
-            {/* <button onClick={() => passMenuHandler('previous')}>atrás</button>
-            <button onClick={() => passMenuHandler('next')}>frente</button> */}
+            {/* <button onClick={() => passMenuMobileHandler('previous')}>atrás</button>
+            <button onClick={() => passMenuMobileHandler('next')}>frente</button> */}
         </div>
     )
 }
