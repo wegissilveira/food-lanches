@@ -5,10 +5,43 @@
     position: relative;
 }
 
+@media (min-width:1200px) {
+    .Footer-subContainer {
+        padding-top: 30px;
+    }
+}
+
+.Footer-info--container > div:first-of-type {
+    display: none;
+}
+
+@media (min-width:1200px) {
+    .Footer-info--container {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .Footer-info--container > div {
+        width: 40%;
+    }
+
+    .Footer-info--container > div:first-of-type {
+        display: block;
+    }
+}
+
 .Footer-subContainer h2 {
     margin: 0;
     padding-top: 10px;
     text-align: center;
+}
+
+@media (min-width:1200px) {
+    .Footer-subContainer h2 {
+        text-align: left;
+    }
 }
 
 .Footer-icons--container {
@@ -24,6 +57,13 @@
     .Footer-icons--container {
         width: 50%;
         margin-left: 25%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .Footer-icons--container {
+        width: 80%;
+        margin-left: 0;
     }
 }
 

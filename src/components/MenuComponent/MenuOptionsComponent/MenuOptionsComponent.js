@@ -11,7 +11,6 @@ const MenuOptionsComponent = props => {
 
     let [optionsWidth, setOptionsWidth] = React.useState(0)
     let [translateValue, setTranslateValue] = React.useState(0)
-    let [arrows, setArrows] = React.useState([])
 
 
     const optionsStyle = {
@@ -22,32 +21,9 @@ const MenuOptionsComponent = props => {
     const passMenuOptionsHandler = dir => {
         if (dir === 'next' && translateValue > (optionsWidth * -1) + props.windowWidth) {
             setTranslateValue(translateValue - props.windowWidth)
-            disableArrows()
         } else if (dir === 'previous' && translateValue < 0) {
             setTranslateValue(translateValue + props.windowWidth)
-            disableArrows()
         }  
-    }
-
-    const disableArrows = () => {
-        let newArrows = [...arrows]
-        if (translateValue > (optionsWidth * -1) + props.windowWidth) {
-            newArrows[1] = false
-            console.log('teste1')
-        } else {
-            newArrows[1] = true
-            console.log('teste2')
-        }
-
-        if (translateValue < 0) {
-            newArrows[0] = false
-            console.log('teste3')
-        } else {
-            newArrows[0] = true
-            console.log('teste4')
-        }
-        setArrows(newArrows)
-        
     }
 
     let optionsArr = []
@@ -68,12 +44,6 @@ const MenuOptionsComponent = props => {
         setOptionsWidth(newWidth)
         setTranslateValue(0)
     }, [optionsArr.length, props.windowWidth, props.headerTab])
-
-    React.useEffect(() => disableArrows(), [])
-
-    console.log(translateValue)
-    console.log(translateValue < 0)
-    // console.log(translateValue > (optionsWidth * -1) + props.windowWidth)
     
 
     return (
@@ -122,7 +92,6 @@ const MenuOptionsComponent = props => {
                 passSlidesFn={arg => passMenuOptionsHandler(arg)}
                 color={'#F5C662'}
                 bt={'-35px'}
-                active={arrows}
             />
         </Fragment>
     )

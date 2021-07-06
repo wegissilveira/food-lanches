@@ -3,8 +3,23 @@
     color: #F5C662;
 }
 
+@media (min-width:1200px) {
+    .Contact-container {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+    }
+}
+
 .Contact-subContainer {
     margin: 0 10px;
+}
+
+@media (min-width:1200px) {
+    .Contact-subContainer {
+        width: 50%;
+        margin-left: 25%;
+    }
 }
 
 .Contact-subContainer h1 {
@@ -28,7 +43,7 @@
 
 @media (min-width: 768px) {
     .Contact-subContainer p {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
 }
 
@@ -51,6 +66,17 @@
     }
 }
 
+@media (min-width: 1200px) {
+    .Contact-header {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 .Contact-header div {
     display: flex;
     justify-content: space-evenly;
@@ -65,6 +91,22 @@
 .Contact-header svg {
    color: #0C5506;
 }
+
+@media (min-width:1200px) {
+    .Contact-header div {
+        justify-content: unset;
+    }
+
+    .Contact-header div:nth-of-type(2) {
+        width: auto;
+        margin-left: 0;
+    }
+    
+    .Contact-header svg {
+       margin-right: 10px;
+    }
+}
+
 
 .Contact-header p {
    margin: 10px 0;
@@ -91,12 +133,24 @@ input, textarea {
     -o-border-radius: 3px;
 }
 
+
 input::placeholder, ::placeholder {
     color: #F5C662;
 }
 
 textarea {
     height: 80px;
+}
+
+@media (min-width:1200px) {
+    input{
+        font-size: 0.9em;
+    }
+
+    textarea {
+        font-size: 1.2em;
+        font-weight: 400;
+    }
 }
 
 button {
@@ -112,4 +166,10 @@ button {
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
+}
+
+@media (min-width:1200px) {
+    button {
+        font-size: 1em;
+    }
 }
