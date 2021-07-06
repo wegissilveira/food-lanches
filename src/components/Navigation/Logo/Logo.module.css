@@ -12,3 +12,9 @@
         font-size: 2.3em;
     }
 }
+
+@media (min-width: 1578px) {
+    .Logo > h2 {
+        font-size: 3em;
+    }
+}

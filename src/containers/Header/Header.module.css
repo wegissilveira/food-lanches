@@ -51,6 +51,12 @@
     }
 }
 
+@media (min-width: 1578px) {
+    .Header-title {
+        font-size: 4.5em;
+    }
+}
+
 .Header-title span {
     color: #F5C662;
 }
@@ -69,5 +75,11 @@
 @media (min-width: 1200px) {
     .Header-container > p {
         display: block;
+    }
+}
+
+@media (min-width: 1578px) {
+    .Header-container > p {
+        font-size: 1.6em;
     }
 }

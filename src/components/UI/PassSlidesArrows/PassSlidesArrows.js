@@ -9,7 +9,8 @@ const PassSlidesArrows = props => {
 
     const style={
         color: props.color,
-        bottom: props.bt
+        bottom: props.bt,
+        fontSize: props.size !== undefined ? props.size+'em' : '3em'
     }    
 
     return (
@@ -19,12 +20,12 @@ const PassSlidesArrows = props => {
         >
             <FontAwesomeIcon 
                 icon={['fas', 'chevron-left']} 
-                size="3x"
+                // size="3x"
                 onClick={() => props.passSlidesFn('previous')}
             />
             <FontAwesomeIcon 
                 icon={['fas', 'chevron-right']} 
-                size="3x"
+                // size="3x"
                 onClick={() => props.passSlidesFn('next')}
             />
         </div>

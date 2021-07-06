@@ -85,10 +85,26 @@
     background-color: #d3971525;
 }
 
+@media (min-width:1200px) {
+    .Burger-header {
+        background-color: #d3971525;
+        height: 50%;
+        width: 49%;
+        text-align: left;
+        padding-left: 5px;
+    }
+}
+
 .Burger-header h1 {
     color: #F5C662;
     margin: 0;
     font-size: 1.9em;
+}
+
+@media (min-width:1578px) {
+    .Burger-header h1 {
+        font-size: 2.2em;
+    }
 }
 
 .Burger-header .Header-pizza {
@@ -101,13 +117,9 @@
     color: #fff;
 }
 
-@media (min-width:1200px) {
-    .Burger-header {
-        background-color: #d3971525;
-        height: 50%;
-        width: 49%;
-        text-align: left;
-        padding-left: 5px;
+@media (min-width:1578px) {
+    .Burger-header p {
+        font-size: 1.5em;
     }
 }
 
@@ -163,13 +175,23 @@
     }
 }
 
-.Burger-blockTwo h1 {
+.Burger-header--lanches h1 {
     color: #F5C662;
 }
 
-.Burger-blockTwo p {
+.Burger-header--lanches p {
     font-size: 1.2em;
     color: #fff;
+}
+
+@media (min-width:1200px) {
+    .Burger-header--lanches h1 {
+        font-size: 2.2em;
+    }
+
+    .Burger-header--lanches p {
+        font-size: 1.5em;
+    }
 }
 
 .Burger-blockTwo img {

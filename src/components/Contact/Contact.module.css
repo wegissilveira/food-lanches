@@ -11,6 +11,12 @@
     }
 }
 
+@media (min-width:1578px) {
+    .Contact-container {
+        height: 70vh;
+    }
+}
+
 .Contact-subContainer {
     margin: 0 10px;
 }
@@ -33,6 +39,12 @@
     }
 }
 
+@media (min-width: 1578px) {
+    .Contact-subContainer h1 {
+        font-size: 3em;
+    }
+}
+
 .Contact-subContainer > p {
     text-align: center;
 }
@@ -44,6 +56,12 @@
 @media (min-width: 768px) {
     .Contact-subContainer p {
         font-size: 1.2em;
+    }
+}
+
+@media (min-width: 1578px) {
+    .Contact-subContainer p {
+        font-size: 1.5em;
     }
 }
 
@@ -153,6 +171,17 @@ textarea {
     }
 }
 
+@media (min-width:1578px) {
+    input{
+        font-size: 1.2em;
+    }
+
+    textarea {
+        font-size: 1.4em;
+        font-weight: 400;
+    }
+}
+
 button {
     margin: 15px 0;
     height: 40px;
@@ -171,5 +200,12 @@ button {
 @media (min-width:1200px) {
     button {
         font-size: 1em;
+    }
+}
+
+@media (min-width:1578px) {
+    button {
+        font-size: 1.4em;
+        height: 60px;
     }
 }

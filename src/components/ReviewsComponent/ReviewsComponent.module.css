@@ -42,6 +42,13 @@
     }
 }
 
+@media (min-width: 1578px) {
+    .Review-container {
+        font-size: 1.6em;
+    }
+}
+
+
 .Review-container img {
     display: none;
     width: 35%;
@@ -63,21 +70,3 @@
     display: inline-block;
     margin-top: 20px;
 }
-
-/* .Reviews-arrows--container {
-    display: none;
-    justify-content: space-between;
-    width: 96%;
-    margin-left: 2%;
-    position: absolute;
-    bottom: 25px;
-    cursor: pointer;
-    color: #fff;
-}
-
-@media (min-width:1200px) {
-    .Reviews-arrows--container {
-        display: flex;
-    }
-    
-} */

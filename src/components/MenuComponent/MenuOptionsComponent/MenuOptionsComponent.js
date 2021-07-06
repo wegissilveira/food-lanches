@@ -11,6 +11,7 @@ const MenuOptionsComponent = props => {
 
     let [optionsWidth, setOptionsWidth] = React.useState(0)
     let [translateValue, setTranslateValue] = React.useState(0)
+    let [arrowsSize, setArrowsSize] =  React.useState(3)
 
 
     const optionsStyle = {
@@ -36,14 +37,28 @@ const MenuOptionsComponent = props => {
     //Altera o width de acordo com a quantidade de itens
     React.useEffect(() => {
         let newWidth = props.windowWidth * (Math.ceil(optionsArr.length / 3))
+        let arrows = arrowsSize
 
         if (props.windowWidth >= 768) {
             newWidth = newWidth / 3 
         } 
 
+        if (props.windowWidth >= 1578) {
+            arrows = 4
+        } else {
+            arrows = 3
+        }
+
         setOptionsWidth(newWidth)
         setTranslateValue(0)
-    }, [optionsArr.length, props.windowWidth, props.headerTab])
+        setArrowsSize(arrows)
+
+    }, [
+            optionsArr.length, 
+            props.windowWidth, 
+            props.headerTab, 
+            arrowsSize
+        ])
     
 
     return (
@@ -92,6 +107,7 @@ const MenuOptionsComponent = props => {
                 passSlidesFn={arg => passMenuOptionsHandler(arg)}
                 color={'#F5C662'}
                 bt={'-35px'}
+                size={arrowsSize}
             />
         </Fragment>
     )

@@ -80,6 +80,12 @@
     }
 }
 
+@media (min-width:1578px) {
+    .Header-item {
+        font-size: 1.3em;
+    }
+}
+
 .Header-item > h2 {
     border-bottom: 0;
     margin-left: 10px;

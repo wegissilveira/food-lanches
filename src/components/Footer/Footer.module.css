@@ -32,6 +32,12 @@
     }
 }
 
+@media (min-width:1578px) {
+    .Footer-info--container > div {
+        font-size: 1.3em;
+    }
+}
+
 .Footer-subContainer h2 {
     margin: 0;
     padding-top: 10px;
@@ -71,6 +77,12 @@
     position: absolute;
     bottom: 10px;
     width: 100%;
+}
+
+@media (min-width:1578px) {
+    .Footer-brand {
+        font-size: 1.3em;
+    }
 }
 
 .Footer-brand p {

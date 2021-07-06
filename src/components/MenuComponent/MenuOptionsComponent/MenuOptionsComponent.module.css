@@ -34,11 +34,11 @@
     }
 }
 
-/* @media (min-width: 768px) {
+@media (min-width: 1578px) {
     .Options-container > div {
-        width: 40%;
+        font-size: 1.7em;
     }
-} */
+}
 
 .Options-container > div :first-child {
     margin-top: 0;

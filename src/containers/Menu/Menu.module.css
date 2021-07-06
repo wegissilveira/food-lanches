@@ -11,6 +11,12 @@
     }
 }
 
+@media (min-width:1578px) {
+    .Menu-container {
+        height: 75vh;
+    }
+}
+
 .Menu-container > h1 {
     color: #F5C662;
     margin: 0;
@@ -33,11 +39,20 @@
     }
 }
 
+@media (min-width:1578px) {
+    .Menu-container > h1 {
+        font-size: 3em;
+    }
+}
 
-/* TEMPORÁRIO */
 .Menu-container > p {
     color: #fff;
     text-align: center;
     font-size: 1.2em;
 }
 
+@media (min-width:1578px) {
+    .Menu-container > p {
+        font-size: 1.4em;
+    }
+}
