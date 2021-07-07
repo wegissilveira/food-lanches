@@ -11,16 +11,16 @@
     }
 }
 
+@media (min-width: 1578px) {
+    .MenuNavigation-container {
+        width: 30%;
+    }
+}
+
 .Navigation-title {
     display: flex;
     justify-content: space-between;
     width: 80%;
-}
-
-@media (min-width: 1578px) {
-    .Navigation-title {
-        font-size: 1.2em;
-    }
 }
 
 .Navigation-title p {
@@ -44,6 +44,6 @@
 
 @media (min-width: 1578px) {
     .Navigation-icons > svg {
-        font-size: 2.5em;
+        font-size: 2em;
     }
 }

@@ -87,18 +87,6 @@ const ReviewsComponent = props => {
                 }
                 
             </div>
-            {/* <div className={classes['Reviews-arrows--container']}>
-                <FontAwesomeIcon 
-                    icon={['fas', 'chevron-left']} 
-                    size="3x"
-                    onClick={() => passMenuHandler('previous')}
-                />
-                <FontAwesomeIcon 
-                    icon={['fas', 'chevron-right']} 
-                    size="3x"
-                    onClick={() => passMenuHandler('next')}
-                />
-            </div> */}
             <PassSlidesArrows passSlidesFn={arg => passMenuHandler(arg)} />
         </React.Fragment>
         

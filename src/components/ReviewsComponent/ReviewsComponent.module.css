@@ -44,7 +44,7 @@
 
 @media (min-width: 1578px) {
     .Review-container {
-        font-size: 1.6em;
+        font-size: 1.4em;
     }
 }
 
@@ -58,6 +58,12 @@
 @media (min-width:1200px) {
     .Review-container img {
         display: inline;
+    }
+}
+
+@media (min-width:1578px) {
+    .Review-container img {
+        width: 30%;
     }
 }
 

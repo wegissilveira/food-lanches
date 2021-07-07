@@ -23,6 +23,12 @@
     }
 }
 
+@media (min-width: 1578px) {
+    .Header-container {
+        height: 100vh;
+    }
+}
+
 .Header-title {
     color: #991C1E;
     text-align: center;

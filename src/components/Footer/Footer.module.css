@@ -34,7 +34,7 @@
 
 @media (min-width:1578px) {
     .Footer-info--container > div {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
 }
 
@@ -73,6 +73,16 @@
     }
 }
 
+@media (min-width: 1578px) {
+    .Footer-icons--container {
+        width: 60%;
+    }
+
+    .Footer-icons--container svg {
+        font-size: 2em;
+    }
+}
+
 .Footer-brand {
     position: absolute;
     bottom: 10px;
@@ -81,7 +91,7 @@
 
 @media (min-width:1578px) {
     .Footer-brand {
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
 }
 

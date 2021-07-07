@@ -11,6 +11,12 @@
     }
 }
 
+@media (min-width:1578px) {
+    .Reviews-section {
+        height: 70vh;
+    }
+}
+
 .Reviews-section--container {
     height: 80%;
     display: flex;

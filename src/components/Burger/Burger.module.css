@@ -54,10 +54,6 @@
         background-blend-mode: overlay;
 }
 
-@media (min-width:1200px) {
-
-}
-
 .Burger-blockOne > div {
     width: 50%;
     margin-left: 25%;
@@ -162,6 +158,16 @@
 
     .Burger-blockTwo > div {
         padding-top: 6.5%;
+    }
+}
+
+@media (min-width:1578px) {
+    .Burger-blockTwo {
+        height: 77vh;
+    }
+
+    .Burger-blockTwo > div {
+        padding-top: 3.5%;
     }
 }
 

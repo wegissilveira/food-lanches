@@ -13,7 +13,7 @@
 
 @media (min-width:1578px) {
     .Contact-container {
-        height: 70vh;
+        height: 85vh;
     }
 }
 
@@ -205,7 +205,7 @@ button {
 
 @media (min-width:1578px) {
     button {
-        font-size: 1.4em;
-        height: 60px;
+        font-size: 1.2em;
+        height: 40px;
     }
 }
