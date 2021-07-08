@@ -23,16 +23,15 @@
     width: 80%;
 }
 
-.Navigation-title p {
+.Navigation-title a {
     margin: 0;
     font-weight: bold;
     color: #F5C662;
+    cursor: pointer;
 }
 
-.Navigation-title p:first-child {
-    margin: 0;
-    font-weight: unset;
-    color: #991C1E;
+.Navigation-title p:hover {
+    color: #c03d3f;
 }
 
 .Navigation-icons {
@@ -40,6 +39,10 @@
     justify-content: space-between;
     width: 15%;
     color: #991C1E;
+}
+
+.Navigation-icons svg {
+    cursor: pointer;
 }
 
 @media (min-width: 1578px) {

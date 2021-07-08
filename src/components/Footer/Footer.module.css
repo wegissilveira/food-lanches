@@ -71,6 +71,10 @@
         width: 80%;
         margin-left: 0;
     }
+    
+    .Footer-icons--container svg {
+        cursor: pointer;
+    }
 }
 
 @media (min-width: 1578px) {
@@ -101,4 +105,5 @@
 
 .Footer-brand span {
     text-decoration: underline;
+    cursor: pointer;
 }

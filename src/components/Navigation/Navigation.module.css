@@ -8,7 +8,7 @@
 
 @media (min-width: 1200px) {
     .Navigation-container {
-        position: absolute;
+        position: fixed;
         top: 20px;
         width: 94%;
         margin-left: 3%;

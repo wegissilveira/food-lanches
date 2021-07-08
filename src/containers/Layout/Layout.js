@@ -13,7 +13,9 @@ import Footer from '../../components/Footer/Footer'
 
 
 class Layout extends Component {
+
     render() {
+
         return (
             <Fragment>
                 <Header />
@@ -21,7 +23,7 @@ class Layout extends Component {
                 <Menu />
                 <SobreNos />
                 <Burger />
-                <Contact />
+                <Contact/>
                 <Footer />
             </Fragment>
         )

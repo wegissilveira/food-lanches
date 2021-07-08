@@ -9,8 +9,7 @@ class Menu extends Component {
 
     render() {
         return (
-            
-            <div className={classes['Menu-container']}>
+            <div id="menu" className={classes['Menu-container']}>
                 <h1>CARDÁPIO</h1>
                 <p>Nosso cardápio. Abra, escolha a melhor opção para você e se <br/> prepare para um grande experiência</p>
                 <MenuComponent />

@@ -2,9 +2,9 @@ import React from 'react'
 
 import classes from './MenuComponent.module.css'
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import MenuOptionsComponent from './MenuOptionsComponent/MenuOptionsComponent'
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const MenuComponent = props => {
@@ -57,13 +57,6 @@ const MenuComponent = props => {
                 el.classList.remove(classes['Header-item-alt'])
             }
         })
-
-        // subContainerElement[i].style.color = 'blue'
-
-        // console.log(subContainerElementArr)
-
-        // let after = window.getComputedStyle(subContainerElementArr[i],':after')
-        // console.log(after['content'])
     }
 
     React.useEffect(() => {
@@ -76,10 +69,7 @@ const MenuComponent = props => {
         }
 
         setHeaderWidth(newHeaderWidth)
-    }, [windowWidth])
-
-
-   
+    }, [windowWidth]) 
 
 
     
