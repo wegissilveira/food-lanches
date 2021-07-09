@@ -4,8 +4,6 @@ import classes from './ReviewsComponent.module.css'
 
 import PassSlidesArrows from '../UI/PassSlidesArrows/PassSlidesArrows';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 
 const ReviewsComponent = props => {
 
@@ -63,7 +61,6 @@ const ReviewsComponent = props => {
 
 
     return(
-        //REMOVER ESSE FRAGMENT. ESTÁ AQUI SÓ PARA TESTES
         <React.Fragment>
             <div 
                 className={classes['Reviews-container']}

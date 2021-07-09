@@ -50,7 +50,6 @@ const MenuComponent = props => {
         subContainerElementArr.forEach((el, idx) => {
             if (idx === i) {
                 el.style.color = '#991C1E'
-                // el.classList.remove(classes['Header-item'])
                 el.classList.add(classes['Header-item-alt'])
             } else {
                 el.style.color = '#F5C662'

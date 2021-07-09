@@ -8,10 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Footer = props => {
     return (
         <div className={classes['Footer-container']}>
-            {/* <div>
-                <h2>Sobre a Food</h2>
-                <p>Somos apaixonados por fazer da culinária uma arte. Esta é a nossa missão.</p>
-            </div> */}
             <div className={classes['Footer-subContainer']}>
                 <div className={classes['Footer-info--container']}>
                     <div>
