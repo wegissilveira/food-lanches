@@ -13,6 +13,9 @@ const ReviewsComponent = props => {
     let [reviewsIndex, setReviewIndex] = React.useState(props.reviewsIndex)
 
 
+    
+
+
     const reviewsStyle = {
         width: reviewsWidth,
         transform: `translateX(${translateValue}px)`
@@ -59,12 +62,63 @@ const ReviewsComponent = props => {
     }, [props.reviews.length, windowWidth])
 
 
+    /* TOUCH CONFIGURATION */
+    const reviewsRef = React.useRef()
+
+    let [initialPosition, setInitialPosition] = React.useState(null)
+    let [moving, setMoving] = React.useState(false)
+    let [transform, setTransform] = React.useState(0)
+
+    const gestureStart = e => {
+        const transformMatrix = window.getComputedStyle(reviewsRef.current).getPropertyValue(`transform`)
+        setInitialPosition(e.pageX)
+        setMoving(true)
+        setTransform(parseInt(transformMatrix.split(',')[4]))
+    }
+    
+    const gestureMove = e => {
+        if (moving) {
+            const currentPosition = e.pageX
+            const diff = currentPosition - initialPosition
+            reviewsRef.current.style.transform = `translate(${transform + diff}px)`
+        }
+    }
+
+    const gestureEnd = e => {
+        setMoving(false)
+    }
+
+    React.useEffect(() => {
+        window.addEventListener('pointerdown', gestureStart)
+
+        return () =>
+          window.removeEventListener('pointerdown', gestureStart);
+    }, [])
+
+    React.useEffect(() => {
+        window.addEventListener('pointermove', gestureMove)
+
+        return () =>
+          window.removeEventListener('pointermove', gestureMove);
+    })
+
+    React.useEffect(() => {
+        window.addEventListener('pointerup', gestureEnd)
+
+        return () =>
+          window.removeEventListener('pointerup', gestureEnd);
+    }, [])
+
+    /* */
+    
+
 
     return(
         <React.Fragment>
             <div 
                 className={classes['Reviews-container']}
                 style={reviewsStyle}
+                ref={reviewsRef}
             >
                 {
                     props.reviews.map((customer, i) => {
