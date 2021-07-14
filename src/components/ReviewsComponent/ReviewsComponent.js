@@ -80,7 +80,10 @@ const ReviewsComponent = props => {
         if (moving) {
             const currentPosition = e.pageX
             const diff = currentPosition - initialPosition
-            reviewsRef.current.style.transform = `translate(${transform + diff}px)`
+            let newTransform = transform + diff
+            if (newTransform > 0) newTransform = 0
+            if (newTransform <= (reviewsWidth - windowWidth) * -1) newTransform = (reviewsWidth - windowWidth) * -1
+            reviewsRef.current.style.transform = `translate(${newTransform}px)`
         }
     }
 
