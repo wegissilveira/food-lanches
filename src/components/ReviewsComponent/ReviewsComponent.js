@@ -9,12 +9,14 @@ const ReviewsComponent = props => {
 
     let [windowWidth, ] = React.useState(window.innerWidth)
     let [reviewsWidth, setReviewsWidth] = React.useState(0)
-    let [translateValue, setTranslateValue] =  React.useState(0)
     let [reviewsIndex, setReviewIndex] = React.useState(props.reviewsIndex)
+    let [initialPosition, setInitialPosition] = React.useState(null)
+    let [translateValue, setTranslateValue] =  React.useState(0)
 
+    let [moving, setMoving] = React.useState(false)
+    let [transform, setTransform] = React.useState(0)
 
-    
-
+    const reviewsRef = React.useRef()
 
     const reviewsStyle = {
         width: reviewsWidth,
@@ -27,22 +29,12 @@ const ReviewsComponent = props => {
         let newReviewIndex = reviewsIndex
 
         if (dir === 'next' && translateValue > ((reviewsWidth - windowWidth) * -1)) {
-            
-            if (windowWidth >= 1200) {
-                newTranslateValue = newTranslateValue - (windowWidth / 3)
-            } else {
-                newTranslateValue = newTranslateValue - windowWidth
-            }
+            newTranslateValue = newTranslateValue - (windowWidth / 3)
             newReviewIndex++
         } 
 
         if (dir === 'previous' && translateValue < 0) {
-            
-            if (windowWidth >= 1200) {
-                newTranslateValue = newTranslateValue + (windowWidth / 3)
-            } else {
-                newTranslateValue = newTranslateValue + windowWidth
-            }
+            newTranslateValue = newTranslateValue + (windowWidth / 3)
             newReviewIndex--
         }
 
@@ -51,32 +43,15 @@ const ReviewsComponent = props => {
         props.setReviewIndex(newReviewIndex)
     }
 
-    React.useEffect(() => {
-        let newWidth = windowWidth * props.reviews.length
-
-        if (windowWidth >= 1200) {
-            newWidth = newWidth / 3
-        }
-        
-        setReviewsWidth(newWidth)
-    }, [props.reviews.length, windowWidth])
-
-
-    /* TOUCH CONFIGURATION */
-    const reviewsRef = React.useRef()
-
-    let [initialPosition, setInitialPosition] = React.useState(null)
-    let [moving, setMoving] = React.useState(false)
-    let [transform, setTransform] = React.useState(0)
-
-    const touchStart = e => {
+    /* CONFIGURAÇÃO TOUCH */
+    const passMenuTouchStart = e => {
         const transformMatrix = window.getComputedStyle(reviewsRef.current).getPropertyValue(`transform`)
         setInitialPosition(e.pageX)
         setMoving(true)
         setTransform(parseInt(transformMatrix.split(',')[4]))
     }
     
-    const touchMove = e => {
+    const passMenuTouchMove = e => {
         if (moving) {
             const currentPosition = e.pageX
             const diff = currentPosition - initialPosition
@@ -87,65 +62,94 @@ const ReviewsComponent = props => {
         }
     }
 
-    const touchEnd = () => {
+    const passMenuTouchEnd = () => {
         setMoving(false)
         const reviewsRefTransform = parseInt((reviewsRef.current.style.transform).match(/\d+/)[0])
         let newReviewIndex = reviewsIndex
         
-        if (reviewsRefTransform *-1 !== translateValue) {
-            if (reviewsRefTransform > (translateValue*-1) + (windowWidth /2)) {
+        if (reviewsRefTransform*-1 !== translateValue) {
+            
+            if (reviewsRefTransform > (translateValue*-1) + (windowWidth/2)) {
                 reviewsRef.current.style.transform = `translate(${translateValue - windowWidth}px)`
-                setTranslateValue((translateValue - windowWidth))
                 newReviewIndex++
+
+                setTranslateValue((translateValue - windowWidth))
                 setReviewIndex(newReviewIndex)
                 props.setReviewIndex(newReviewIndex)
                 
-            } else if (reviewsRefTransform < (translateValue*-1) - (windowWidth /2)) {
+            } else if (reviewsRefTransform < (translateValue*-1) - (windowWidth/2)) {
                 reviewsRef.current.style.transform = `translate(${translateValue + windowWidth}px)`
-                setTranslateValue((translateValue + windowWidth))
                 newReviewIndex--
+
+                setTranslateValue((translateValue + windowWidth))
                 setReviewIndex(newReviewIndex)
                 props.setReviewIndex(newReviewIndex)
                 
             } else {
                 reviewsRef.current.style.transform = `translate(${translateValue}px)`
-                
             }
         }
     }
     
     React.useEffect(() => {
         const reviewsEl = reviewsRef.current
-        if (windowWidth <= 1200) {
-            reviewsEl.addEventListener('pointerdown', touchStart)
+        if (windowWidth < 1200) {
+            if (window.PointerEvent) {
+                reviewsEl.addEventListener('pointerdown', passMenuTouchStart)
+                return () =>
+                    reviewsEl.removeEventListener('pointerdown', passMenuTouchStart);
 
-            return () =>
-            reviewsEl.removeEventListener('pointerdown', touchStart);
+            } else {
+                reviewsEl.addEventListener('touchdown', passMenuTouchStart)
+                return () =>
+                    reviewsEl.removeEventListener('touchdown', passMenuTouchStart);
+            }
         }
-    },[windowWidth])
+
+    }, [windowWidth])
 
     React.useEffect(() => {
         const reviewsEl = reviewsRef.current
-        if (windowWidth <= 1200) {
-            reviewsEl.addEventListener('pointermove', touchMove)
-
-            return () =>
-            reviewsEl.removeEventListener('pointermove', touchMove);
+        if (windowWidth < 1200) {
+            if (window.PointerEvent) {
+                reviewsEl.addEventListener('pointermove', passMenuTouchMove)
+                return () =>
+                    reviewsEl.removeEventListener('pointermove', passMenuTouchMove);
+            } else {
+                reviewsEl.addEventListener('touchmove', passMenuTouchMove)
+                return () =>
+                    reviewsEl.removeEventListener('touchmove', passMenuTouchMove);
+            }
         }
     })
 
     React.useEffect(() => {
         const reviewsEl = reviewsRef.current
-        if (windowWidth <= 1200) {
-            reviewsEl.addEventListener('pointerup', touchEnd)
-
-            return () =>
-            reviewsEl.removeEventListener('pointerup', touchEnd);
+        if (windowWidth < 1200) {
+            if (window.PointerEvent) {
+                reviewsEl.addEventListener('pointerup', passMenuTouchEnd)
+                return () =>
+                    reviewsEl.removeEventListener('pointerup', passMenuTouchEnd);
+            } else {
+                reviewsEl.addEventListener('touchdown', passMenuTouchEnd)
+                return () =>
+                    reviewsEl.removeEventListener('touchdown', passMenuTouchEnd);
+            }
         }
     })
     
-
     /* */
+    
+    React.useEffect(() => {
+        let newWidth = windowWidth * props.reviews.length
+
+        if (windowWidth >= 1200) {
+            newWidth = newWidth / 3
+        }
+        
+        setReviewsWidth(newWidth)
+    }, [props.reviews.length, windowWidth])
+
     
 
 

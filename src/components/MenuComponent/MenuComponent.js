@@ -15,7 +15,7 @@ const MenuComponent = props => {
     let [headerTabRef, setHeaderTabRef] = React.useState(0)
     let [translateValue, setTranslateValue] = React.useState(0)
 
-    const subContainer = React.createRef()
+    const subContainerRef = React.createRef()
 
 
     const headerStyle = {
@@ -43,9 +43,9 @@ const MenuComponent = props => {
     }
 
     const passMenuHandler = i => {
-        setHeaderTabRef(i)
 
-        const subContainerElementArr = [].slice.call(subContainer.current.children)
+        setHeaderTabRef(i)
+        const subContainerElementArr = [].slice.call(subContainerRef.current.children)
 
         subContainerElementArr.forEach((el, idx) => {
             if (idx === i) {
@@ -78,7 +78,7 @@ const MenuComponent = props => {
             <div 
                 className={classes['Menu-header']}
                 style={headerStyle} 
-                ref={subContainer}   
+                ref={subContainerRef}   
             >
                 <div className={[classes['Header-item'], classes['Header-item-alt']].join(' ')} onClick={() => passMenuHandler(0)}>
                     <FontAwesomeIcon

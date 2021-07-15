@@ -9,6 +9,10 @@
     color: #F5C662;
     display: flex;
     justify-content: space-between;
+    background-color: rgba(204, 204, 204, 0.116);
+    height: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     
     transition: 1s ease-in-out;
     -webkit-transition: 1s ease-in-out;
@@ -20,6 +24,10 @@
 @media (min-width:1200px) {
     .Menu-header {
         margin-left: 20%;
+        margin-bottom: unset;
+        margin-top: unset;
+        height: unset;
+        background-color: unset;
     }
 }
 

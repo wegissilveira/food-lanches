@@ -47,6 +47,13 @@
     color: #fff;
     text-align: center;
     font-size: 1.2em;
+    display: none;
+}
+
+@media (min-width:768px) {
+    .Menu-container > p {
+        display: block;
+    }
 }
 
 @media (min-width:1578px) {
