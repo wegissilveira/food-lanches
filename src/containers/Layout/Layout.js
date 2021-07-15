@@ -8,6 +8,8 @@ import Burger from '../../components/Burger/Burger'
 import Contact from '../../components/Contact/Contact'
 import Footer from '../../components/Footer/Footer'
 
+import TestComponent from './TestComponent'
+
 
 
 class Layout extends Component {
@@ -23,6 +25,7 @@ class Layout extends Component {
                 <Burger />
                 <Contact/>
                 <Footer />
+                <TestComponent />
             </Fragment>
         )
     }

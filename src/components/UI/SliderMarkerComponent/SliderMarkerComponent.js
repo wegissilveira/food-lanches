@@ -19,7 +19,6 @@ const SliderMarkerComponent = props => {
             <div style={{width: `${width}%`}}>
                 {
                     dotsQtde.map((_, i) => {
-                        let z = 0
                         return <div 
                                     key={i}
                                     className={classes['SliderMarkers-marker']}
