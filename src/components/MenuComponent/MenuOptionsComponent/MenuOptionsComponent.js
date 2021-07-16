@@ -5,6 +5,7 @@ import classes from './MenuOptionsComponent.module.css'
 import PassSlidesArrows from '../../UI/PassSlidesArrows/PassSlidesArrows'
 
 import optionsData from '../../../Data/optionsData'
+import SliderComponent from '../../shared/SliderComponent'
 
 
 const MenuOptionsComponent = props => {
@@ -14,10 +15,10 @@ const MenuOptionsComponent = props => {
     let [arrowsSize, setArrowsSize] =  React.useState(3)
 
 
-    const optionsStyle = {
-        width: optionsWidth,
-        transform: `translateX(${translateValue}px)`
-    }
+    // const optionsStyle = {
+    //     width: optionsWidth,
+    //     transform: `translateX(${translateValue}px)`
+    // }
 
     const passMenuOptionsHandler = dir => {
         if (dir === 'next' && translateValue > (optionsWidth * -1) + props.windowWidth) {
@@ -52,7 +53,7 @@ const MenuOptionsComponent = props => {
         setOptionsWidth(newWidth)
         setTranslateValue(0)
         setArrowsSize(arrows)
-
+        console.log(Math.ceil(optionsArr.length / 3))
     }, [
             optionsArr.length, 
             props.windowWidth, 
@@ -63,8 +64,12 @@ const MenuOptionsComponent = props => {
 
     return (
         <Fragment>
-            <div className={classes['Options-container']}
+            {/* <div className={classes['Options-container']}
                 style={optionsStyle}
+            > */}
+            <SliderComponent
+                classStyle={classes['Options-container']}
+                sliderLength={Math.ceil(optionsArr.length / 3)}
             >
 
                 {
@@ -100,7 +105,8 @@ const MenuOptionsComponent = props => {
                         return optionsList
                     })
                 }
-            </div>
+            </SliderComponent>
+            {/* </div> */}
             {/* <button onClick={() => passMenuOptionsHandler('previous')}>atrás</button>
             <button onClick={() => passMenuOptionsHandler('next')}>frente</button> */}
             <PassSlidesArrows 

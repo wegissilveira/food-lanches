@@ -5,6 +5,7 @@ import classes from './MenuComponent.module.css'
 import MenuOptionsComponent from './MenuOptionsComponent/MenuOptionsComponent'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SliderComponent from '../shared/SliderComponent';
 
 
 const MenuComponent = props => {
@@ -13,33 +14,34 @@ const MenuComponent = props => {
     let [headerWidth, setHeaderWidth] = React.useState(0)
     let [headerTab, setHeaderTab] =  React.useState(['sanduíches', 'pizzas', 'bebidas'])
     let [headerTabRef, setHeaderTabRef] = React.useState(0)
-    let [translateValue, setTranslateValue] = React.useState(0)
+    // let [translateValue, setTranslateValue] = React.useState(0)
 
     const subContainerRef = React.createRef()
 
 
-    const headerStyle = {
-        width: headerWidth,
-        transform: `translateX(${translateValue}px)`
-    }
+    // const headerStyle = {
+    //     width: headerWidth,
+    //     transform: `translateX(${translateValue}px)`
+    // }
 
-    const passMenuMobileHandler = dir => {
+    const setIndexCallBack = i => {
 
-        let newTranslateValue = translateValue
-        let newHeaderTabHeader = headerTabRef
+        // let newTranslateValue = translateValue
+        // let newHeaderTabHeader = headerTabRef
 
-        if (dir === 'next' && translateValue > (headerWidth * -1) + windowWidth) {
-            newTranslateValue = newTranslateValue - windowWidth
-            newHeaderTabHeader++
-        } 
+        // if (dir === 'next' && translateValue > (headerWidth * -1) + windowWidth) {
+        //     newTranslateValue = newTranslateValue - windowWidth
+        //     newHeaderTabHeader++
+        // } 
 
-        if (dir === 'previous' && translateValue < 0) {
-            newTranslateValue = newTranslateValue + windowWidth
-            newHeaderTabHeader--
-        }
+        // if (dir === 'previous' && translateValue < 0) {
+        //     newTranslateValue = newTranslateValue + windowWidth
+        //     newHeaderTabHeader--
+        // }
 
-        setTranslateValue(newTranslateValue)
-        setHeaderTabRef(newHeaderTabHeader)
+        // setTranslateValue(newTranslateValue)
+        setHeaderTabRef(i)
+        console.log(i)
     }
 
     const passMenuHandler = i => {
@@ -75,10 +77,15 @@ const MenuComponent = props => {
     return (
         
         <div className={classes['Menu-subContainer']}>
-            <div 
+            {/* <div 
                 className={classes['Menu-header']}
                 style={headerStyle} 
                 ref={subContainerRef}   
+            > */}
+            <SliderComponent
+                classStyle={classes['Menu-header']}
+                sliderLength={3}
+                setIndex={(i) => setIndexCallBack(i)}
             >
                 <div className={[classes['Header-item'], classes['Header-item-alt']].join(' ')} onClick={() => passMenuHandler(0)}>
                     <FontAwesomeIcon
@@ -101,7 +108,8 @@ const MenuComponent = props => {
                     />
                     <h2>BEBIDAS</h2>
                 </div>
-            </div>
+            </SliderComponent>
+            {/* </div> */}
             
             <MenuOptionsComponent 
                 windowWidth={windowWidth}

@@ -3,6 +3,7 @@ import React from 'react'
 import classes from './ReviewsComponent.module.css'
 
 import PassSlidesArrows from '../UI/PassSlidesArrows/PassSlidesArrows';
+import SliderComponent from '../shared/SliderComponent'
 
 
 const ReviewsComponent = props => {
@@ -10,18 +11,18 @@ const ReviewsComponent = props => {
     let [windowWidth, ] = React.useState(window.innerWidth)
     let [reviewsWidth, setReviewsWidth] = React.useState(0)
     let [reviewsIndex, setReviewIndex] = React.useState(props.reviewsIndex)
-    let [initialPosition, setInitialPosition] = React.useState(null)
     let [translateValue, setTranslateValue] =  React.useState(0)
-
+    
+    let [initialPosition, setInitialPosition] = React.useState(null)
     let [moving, setMoving] = React.useState(false)
     let [transform, setTransform] = React.useState(0)
 
     const reviewsRef = React.useRef()
 
-    const reviewsStyle = {
-        width: reviewsWidth,
-        transform: `translateX(${translateValue}px)`
-    }
+    // const reviewsStyle = {
+    //     width: reviewsWidth,
+    //     transform: `translateX(${translateValue}px)`
+    // }
 
     const passMenuHandler = dir => {
 
@@ -44,99 +45,99 @@ const ReviewsComponent = props => {
     }
 
     /* CONFIGURAÇÃO TOUCH */
-    const passMenuTouchStart = e => {
-        const transformMatrix = window.getComputedStyle(reviewsRef.current).getPropertyValue(`transform`)
-        setInitialPosition(e.pageX)
-        setMoving(true)
-        setTransform(parseInt(transformMatrix.split(',')[4]))
-    }
+    // const passMenuTouchStart = e => {
+    //     const transformMatrix = window.getComputedStyle(reviewsRef.current).getPropertyValue(`transform`)
+    //     setInitialPosition(e.pageX)
+    //     setMoving(true)
+    //     setTransform(parseInt(transformMatrix.split(',')[4]))
+    // }
     
-    const passMenuTouchMove = e => {
-        if (moving) {
-            const currentPosition = e.pageX
-            const diff = currentPosition - initialPosition
-            let newTransform = transform + diff
-            if (newTransform > 0) newTransform = 0
-            if (newTransform <= (reviewsWidth - windowWidth) * -1) newTransform = (reviewsWidth - windowWidth) * -1
-            reviewsRef.current.style.transform = `translate(${newTransform}px)`
-        }
-    }
+    // const passMenuTouchMove = e => {
+    //     if (moving) {
+    //         const currentPosition = e.pageX
+    //         const diff = currentPosition - initialPosition
+    //         let newTransform = transform + diff
+    //         if (newTransform > 0) newTransform = 0
+    //         if (newTransform <= (reviewsWidth - windowWidth) * -1) newTransform = (reviewsWidth - windowWidth) * -1
+    //         reviewsRef.current.style.transform = `translate(${newTransform}px)`
+    //     }
+    // }
 
-    const passMenuTouchEnd = () => {
-        setMoving(false)
-        const reviewsRefTransform = parseInt((reviewsRef.current.style.transform).match(/\d+/)[0])
-        let newReviewIndex = reviewsIndex
+    // const passMenuTouchEnd = () => {
+    //     setMoving(false)
+    //     const reviewsRefTransform = parseInt((reviewsRef.current.style.transform).match(/\d+/)[0])
+    //     let newReviewIndex = reviewsIndex
         
-        if (reviewsRefTransform*-1 !== translateValue) {
+    //     if (reviewsRefTransform*-1 !== translateValue) {
             
-            if (reviewsRefTransform > (translateValue*-1) + (windowWidth/2)) {
-                reviewsRef.current.style.transform = `translate(${translateValue - windowWidth}px)`
-                newReviewIndex++
+    //         if (reviewsRefTransform > (translateValue*-1) + (windowWidth/2)) {
+    //             reviewsRef.current.style.transform = `translate(${translateValue - windowWidth}px)`
+    //             newReviewIndex++
 
-                setTranslateValue((translateValue - windowWidth))
-                setReviewIndex(newReviewIndex)
-                props.setReviewIndex(newReviewIndex)
+    //             setTranslateValue((translateValue - windowWidth))
+    //             setReviewIndex(newReviewIndex)
+    //             props.setReviewIndex(newReviewIndex)
                 
-            } else if (reviewsRefTransform < (translateValue*-1) - (windowWidth/2)) {
-                reviewsRef.current.style.transform = `translate(${translateValue + windowWidth}px)`
-                newReviewIndex--
+    //         } else if (reviewsRefTransform < (translateValue*-1) - (windowWidth/2)) {
+    //             reviewsRef.current.style.transform = `translate(${translateValue + windowWidth}px)`
+    //             newReviewIndex--
 
-                setTranslateValue((translateValue + windowWidth))
-                setReviewIndex(newReviewIndex)
-                props.setReviewIndex(newReviewIndex)
+    //             setTranslateValue((translateValue + windowWidth))
+    //             setReviewIndex(newReviewIndex)
+    //             props.setReviewIndex(newReviewIndex)
                 
-            } else {
-                reviewsRef.current.style.transform = `translate(${translateValue}px)`
-            }
-        }
-    }
+    //         } else {
+    //             reviewsRef.current.style.transform = `translate(${translateValue}px)`
+    //         }
+    //     }
+    // }
     
-    React.useEffect(() => {
-        const reviewsEl = reviewsRef.current
-        if (windowWidth < 1200) {
-            if (window.PointerEvent) {
-                reviewsEl.addEventListener('pointerdown', passMenuTouchStart)
-                return () =>
-                    reviewsEl.removeEventListener('pointerdown', passMenuTouchStart);
+    // React.useEffect(() => {
+    //     const reviewsEl = reviewsRef.current
+    //     if (windowWidth < 1200) {
+    //         if (window.PointerEvent) {
+    //             reviewsEl.addEventListener('pointerdown', passMenuTouchStart)
+    //             return () =>
+    //                 reviewsEl.removeEventListener('pointerdown', passMenuTouchStart);
 
-            } else {
-                reviewsEl.addEventListener('touchdown', passMenuTouchStart)
-                return () =>
-                    reviewsEl.removeEventListener('touchdown', passMenuTouchStart);
-            }
-        }
+    //         } else {
+    //             reviewsEl.addEventListener('touchdown', passMenuTouchStart)
+    //             return () =>
+    //                 reviewsEl.removeEventListener('touchdown', passMenuTouchStart);
+    //         }
+    //     }
 
-    }, [windowWidth])
+    // }, [windowWidth])
 
-    React.useEffect(() => {
-        const reviewsEl = reviewsRef.current
-        if (windowWidth < 1200) {
-            if (window.PointerEvent) {
-                reviewsEl.addEventListener('pointermove', passMenuTouchMove)
-                return () =>
-                    reviewsEl.removeEventListener('pointermove', passMenuTouchMove);
-            } else {
-                reviewsEl.addEventListener('touchmove', passMenuTouchMove)
-                return () =>
-                    reviewsEl.removeEventListener('touchmove', passMenuTouchMove);
-            }
-        }
-    })
+    // React.useEffect(() => {
+    //     const reviewsEl = reviewsRef.current
+    //     if (windowWidth < 1200) {
+    //         if (window.PointerEvent) {
+    //             reviewsEl.addEventListener('pointermove', passMenuTouchMove)
+    //             return () =>
+    //                 reviewsEl.removeEventListener('pointermove', passMenuTouchMove);
+    //         } else {
+    //             reviewsEl.addEventListener('touchmove', passMenuTouchMove)
+    //             return () =>
+    //                 reviewsEl.removeEventListener('touchmove', passMenuTouchMove);
+    //         }
+    //     }
+    // })
 
-    React.useEffect(() => {
-        const reviewsEl = reviewsRef.current
-        if (windowWidth < 1200) {
-            if (window.PointerEvent) {
-                reviewsEl.addEventListener('pointerup', passMenuTouchEnd)
-                return () =>
-                    reviewsEl.removeEventListener('pointerup', passMenuTouchEnd);
-            } else {
-                reviewsEl.addEventListener('touchdown', passMenuTouchEnd)
-                return () =>
-                    reviewsEl.removeEventListener('touchdown', passMenuTouchEnd);
-            }
-        }
-    })
+    // React.useEffect(() => {
+    //     const reviewsEl = reviewsRef.current
+    //     if (windowWidth < 1200) {
+    //         if (window.PointerEvent) {
+    //             reviewsEl.addEventListener('pointerup', passMenuTouchEnd)
+    //             return () =>
+    //                 reviewsEl.removeEventListener('pointerup', passMenuTouchEnd);
+    //         } else {
+    //             reviewsEl.addEventListener('touchdown', passMenuTouchEnd)
+    //             return () =>
+    //                 reviewsEl.removeEventListener('touchdown', passMenuTouchEnd);
+    //         }
+    //     }
+    // })
     
     /* */
     
@@ -155,10 +156,16 @@ const ReviewsComponent = props => {
 
     return(
         <React.Fragment>
-            <div 
+            {/* <div 
                 className={classes['Reviews-container']}
                 style={reviewsStyle}
                 ref={reviewsRef}
+            > */}
+            <SliderComponent 
+                classStyle={classes['Reviews-container']}
+                // styleDynamic={reviewsStyle}
+                // childRef={reviewsRef}
+                sliderLength={props.reviews.length}
             >
                 {
                     props.reviews.map((customer, i) => {
@@ -176,7 +183,8 @@ const ReviewsComponent = props => {
                                 </div>
                     })
                 }
-            </div>
+            </SliderComponent>
+            {/* </div> */}
             <PassSlidesArrows passSlidesFn={arg => passMenuHandler(arg)} />
         </React.Fragment>
         
