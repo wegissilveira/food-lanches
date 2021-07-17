@@ -1,5 +1,5 @@
 .Reviews-arrows--container {
-    display: none;
+    display: flex;
     justify-content: space-between;
     width: 96%;
     margin-left: 2%;
@@ -10,13 +10,13 @@
 
 .Reviews-arrows--container > svg {
     cursor: pointer;
-    z-index: 9999;
+    z-index: 8888;
     position: relative;
 }
 
-@media (min-width:1200px) {
+/* @media (min-width:1200px) {
     .Reviews-arrows--container {
         display: flex;
     }
     
-}
+} */

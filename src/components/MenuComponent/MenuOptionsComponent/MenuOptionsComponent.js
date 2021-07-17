@@ -2,31 +2,13 @@ import React, { Fragment } from 'react'
 
 import classes from './MenuOptionsComponent.module.css'
 
-import PassSlidesArrows from '../../UI/PassSlidesArrows/PassSlidesArrows'
-
 import optionsData from '../../../Data/optionsData'
-import SliderComponent from '../../shared/SliderComponent'
+import SliderComponent from '../../shared/SliderComponent/SliderComponent'
 
 
 const MenuOptionsComponent = props => {
 
-    let [optionsWidth, setOptionsWidth] = React.useState(0)
-    let [translateValue, setTranslateValue] = React.useState(0)
     let [arrowsSize, setArrowsSize] =  React.useState(3)
-
-
-    // const optionsStyle = {
-    //     width: optionsWidth,
-    //     transform: `translateX(${translateValue}px)`
-    // }
-
-    const passMenuOptionsHandler = dir => {
-        if (dir === 'next' && translateValue > (optionsWidth * -1) + props.windowWidth) {
-            setTranslateValue(translateValue - props.windowWidth)
-        } else if (dir === 'previous' && translateValue < 0) {
-            setTranslateValue(translateValue + props.windowWidth)
-        }  
-    }
 
     let optionsArr = []
     optionsData.forEach(product => {
@@ -37,12 +19,7 @@ const MenuOptionsComponent = props => {
 
     //Altera o width de acordo com a quantidade de itens
     React.useEffect(() => {
-        let newWidth = props.windowWidth * (Math.ceil(optionsArr.length / 3))
         let arrows = arrowsSize
-
-        if (props.windowWidth >= 768) {
-            newWidth = newWidth / 3 
-        } 
 
         if (props.windowWidth >= 1578) {
             arrows = 4
@@ -50,26 +27,20 @@ const MenuOptionsComponent = props => {
             arrows = 3
         }
 
-        setOptionsWidth(newWidth)
-        setTranslateValue(0)
         setArrowsSize(arrows)
-        console.log(Math.ceil(optionsArr.length / 3))
-    }, [
-            optionsArr.length, 
-            props.windowWidth, 
-            props.headerTab, 
-            arrowsSize
-        ])
-    
+    }, [props.windowWidth, arrowsSize])
+
+   
 
     return (
         <Fragment>
-            {/* <div className={classes['Options-container']}
-                style={optionsStyle}
-            > */}
             <SliderComponent
                 classStyle={classes['Options-container']}
                 sliderLength={Math.ceil(optionsArr.length / 3)}
+                arrowsColor={'#F5C662'}
+                arrowsPosition={'-35px'}
+                arrowsSize={arrowsSize}
+                markers={false}
             >
 
                 {
@@ -106,15 +77,6 @@ const MenuOptionsComponent = props => {
                     })
                 }
             </SliderComponent>
-            {/* </div> */}
-            {/* <button onClick={() => passMenuOptionsHandler('previous')}>atrás</button>
-            <button onClick={() => passMenuOptionsHandler('next')}>frente</button> */}
-            <PassSlidesArrows 
-                passSlidesFn={arg => passMenuOptionsHandler(arg)}
-                color={'#F5C662'}
-                bt={'-35px'}
-                size={arrowsSize}
-            />
         </Fragment>
     )
 }

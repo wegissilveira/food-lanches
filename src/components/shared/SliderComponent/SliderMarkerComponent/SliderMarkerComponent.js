@@ -9,12 +9,17 @@ const SliderMarkerComponent = props => {
 
     const width = (props.qtde * 10) / 2
     const dotsQtde = Array.from(Array(props.qtde).keys())
+
+    const style = {
+        width: '100%',
+        display: props.markers === false ? 'none' : 'flex'
+    }
     
     
     return(
         <div 
-            style={{width: '100%'}}
             className={classes['SliderMarkers-container']}
+            style={style}
         >
             <div style={{width: `${width}%`}}>
                 {

@@ -5,47 +5,23 @@ import classes from './MenuComponent.module.css'
 import MenuOptionsComponent from './MenuOptionsComponent/MenuOptionsComponent'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SliderComponent from '../shared/SliderComponent';
+import SliderComponent from '../shared/SliderComponent/SliderComponent';
 
 
 const MenuComponent = props => {
 
     let [windowWidth, ] = React.useState(window.innerWidth)
-    let [headerWidth, setHeaderWidth] = React.useState(0)
-    let [headerTab, setHeaderTab] =  React.useState(['sanduíches', 'pizzas', 'bebidas'])
-    let [headerTabRef, setHeaderTabRef] = React.useState(0)
-    // let [translateValue, setTranslateValue] = React.useState(0)
+    let [headerTab, ] =  React.useState(['sanduíches', 'pizzas', 'bebidas'])
+    let [headerTabIndex, setHeaderTabRef] = React.useState(0)
 
     const subContainerRef = React.createRef()
-
-
-    // const headerStyle = {
-    //     width: headerWidth,
-    //     transform: `translateX(${translateValue}px)`
-    // }
+    const optionsRef = React.useRef()
 
     const setIndexCallBack = i => {
-
-        // let newTranslateValue = translateValue
-        // let newHeaderTabHeader = headerTabRef
-
-        // if (dir === 'next' && translateValue > (headerWidth * -1) + windowWidth) {
-        //     newTranslateValue = newTranslateValue - windowWidth
-        //     newHeaderTabHeader++
-        // } 
-
-        // if (dir === 'previous' && translateValue < 0) {
-        //     newTranslateValue = newTranslateValue + windowWidth
-        //     newHeaderTabHeader--
-        // }
-
-        // setTranslateValue(newTranslateValue)
         setHeaderTabRef(i)
-        console.log(i)
     }
 
     const passMenuHandler = i => {
-
         setHeaderTabRef(i)
         const subContainerElementArr = [].slice.call(subContainerRef.current.children)
 
@@ -58,65 +34,76 @@ const MenuComponent = props => {
                 el.classList.remove(classes['Header-item-alt'])
             }
         })
+        
+        if (headerTabIndex !== i) {
+            optionsRef.current.children[1].style = 'transform: translateX(0)'
+        }
+        
     }
 
-    React.useEffect(() => {
-        let newHeaderWidth
-
-        if (windowWidth >= 1200) {
-            newHeaderWidth = '60%'
-        } else {
-            newHeaderWidth = windowWidth * 3
-        }
-
-        setHeaderWidth(newHeaderWidth)
-    }, [windowWidth]) 
+    const headerItems = (
+        <React.Fragment>
+            <div 
+                className={[classes['Header-item'], classes['Header-item-alt']].join(' ')} 
+                onClick={windowWidth >= 1200 ? () => passMenuHandler(0) : null}
+            >
+                <FontAwesomeIcon
+                    icon={['fas', 'hamburger']} 
+                    size="2x"
+                />
+                <h2>SANDUÍCHES</h2>
+            </div>
+            <div 
+                className={classes['Header-item']} 
+                onClick={windowWidth >= 1200 ? () => passMenuHandler(1) : null}
+            >
+                <FontAwesomeIcon
+                    icon={['fas', 'pizza-slice']} 
+                    size="2x"
+                />
+                <h2>PIZZAS</h2>
+            </div>
+            <div 
+                className={classes['Header-item']} 
+                onClick={windowWidth >= 1200 ? () => passMenuHandler(2) : null}
+            >
+                <FontAwesomeIcon
+                    icon={['fas', 'cocktail']} 
+                    size="2x"
+                />
+                <h2>BEBIDAS</h2>
+            </div>
+        </React.Fragment>
+    )
 
 
     
     return (
         
-        <div className={classes['Menu-subContainer']}>
-            {/* <div 
-                className={classes['Menu-header']}
-                style={headerStyle} 
-                ref={subContainerRef}   
-            > */}
-            <SliderComponent
-                classStyle={classes['Menu-header']}
-                sliderLength={3}
-                setIndex={(i) => setIndexCallBack(i)}
-            >
-                <div className={[classes['Header-item'], classes['Header-item-alt']].join(' ')} onClick={() => passMenuHandler(0)}>
-                    <FontAwesomeIcon
-                        icon={['fas', 'hamburger']} 
-                        size="2x"
-                    />
-                    <h2>SANDUÍCHES</h2>
-                </div>
-                <div className={classes['Header-item']} onClick={() => passMenuHandler(1)}>
-                    <FontAwesomeIcon
-                        icon={['fas', 'pizza-slice']} 
-                        size="2x"
-                    />
-                    <h2>PIZZAS</h2>
-                </div>
-                <div className={classes['Header-item']} onClick={() => passMenuHandler(2)}>
-                    <FontAwesomeIcon
-                        icon={['fas', 'cocktail']} 
-                        size="2x"
-                    />
-                    <h2>BEBIDAS</h2>
-                </div>
-            </SliderComponent>
-            {/* </div> */}
+        <div className={classes['Menu-subContainer']} ref={optionsRef}>
+
+            { windowWidth < 1200 ? 
+                    <SliderComponent
+                        classStyle={classes['Menu-header']}
+                        sliderLength={3}
+                        setIndex={i => setIndexCallBack(i)}
+                        arrows={false}
+                        markers={false}
+                        parent={true}
+                    > {headerItems}
+                    </SliderComponent> 
+                :
+                    <div 
+                        className={classes['Menu-header']}
+                        ref={subContainerRef}   
+                    > {headerItems}
+                    </div>
+            }
             
             <MenuOptionsComponent 
                 windowWidth={windowWidth}
-                headerTab={headerTab[headerTabRef]}
+                headerTab={headerTab[headerTabIndex]}
             />
-            {/* <button onClick={() => passMenuMobileHandler('previous')}>atrás</button>
-            <button onClick={() => passMenuMobileHandler('next')}>frente</button> */}
         </div>
     )
 }

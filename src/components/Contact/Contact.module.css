@@ -39,6 +39,12 @@
     }
 }
 
+@media (min-width: 1200px) {
+    .Contact-subContainer h1 {
+        padding-top: 63px;
+    }
+}
+
 @media (min-width: 1578px) {
     .Contact-subContainer h1 {
         font-size: 3em;

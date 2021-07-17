@@ -1,6 +1,8 @@
 import React from 'react'
 
-// import classes from './ReviewsComponent.module.css'
+import PassSlidesArrows from './PassSlidesArrows/PassSlidesArrows'
+import SliderMarkerComponent from './SliderMarkerComponent/SliderMarkerComponent'
+
 
 const SliderComponent = props => {
 
@@ -18,6 +20,24 @@ const SliderComponent = props => {
     const sliderStyle = {
         width: reviewsWidth,
         transform: `translateX(${translateValue}px)`
+    }
+    
+    const passMenuHandler = dir => {
+        let newTranslateValue = parseInt((sliderRef.current.style.transform).match(/\d+/)[0])*-1
+        let newReviewIndex = reviewsIndex
+
+        if (dir === 'next' && newTranslateValue > ((reviewsWidth - windowWidth) * -1)) {
+            newTranslateValue = newTranslateValue - (windowWidth / 3)
+            newReviewIndex++
+        } 
+
+        if (dir === 'previous' && newTranslateValue < 0) {
+            newTranslateValue = newTranslateValue + (windowWidth / 3)
+            newReviewIndex--
+        }
+        
+        setTranslateValue(newTranslateValue)
+        setReviewIndex(newReviewIndex)        
     }
 
     /* CONFIGURAÇÃO TOUCH */
@@ -64,6 +84,10 @@ const SliderComponent = props => {
                 
             } else {
                 sliderRef.current.style.transform = `translate(${translateValue}px)`
+            }
+
+            if (props.parent) {
+                sliderRef.current.parentNode.children[3].style.transform = 'translateX(0)'
             }
         }
     }
@@ -126,18 +150,32 @@ const SliderComponent = props => {
         
         setReviewsWidth(newWidth)
     }, [props.sliderLength, windowWidth])
-
     
 
 
     return (
-        <div 
-            className={props.classStyle}
-            style={sliderStyle}
-            ref={sliderRef}
-        >
-            {props.children}
-        </div>
+        <React.Fragment>
+            <div 
+                className={props.classStyle}
+                style={sliderStyle}
+                ref={sliderRef}
+            >
+                {props.children}
+                
+            </div>
+            <PassSlidesArrows 
+                passSlidesFn={arg => passMenuHandler(arg)} 
+                color={props.arrowsColor}
+                bt={props.arrowsPosition}
+                size={props.arrowsSize}
+                arrows={props.arrows}
+            />
+            <SliderMarkerComponent 
+                qtde={props.sliderLength} 
+                reviewsIndex={reviewsIndex}
+                markers={props.markers}
+            />
+        </React.Fragment>
     )
 }
 

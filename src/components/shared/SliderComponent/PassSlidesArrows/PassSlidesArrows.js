@@ -6,11 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const PassSlidesArrows = props => {
+    let [windowWidth, ] = React.useState(window.innerWidth)
 
     const style={
         color: props.color,
         bottom: props.bt,
-        fontSize: props.size !== undefined ? props.size+'em' : '3em'
+        fontSize: props.size !== undefined ? props.size+'em' : '3em',
+        display: props.arrows === false || windowWidth < 1200 ? 'none' : 'flex'
     }    
 
     return (
@@ -20,12 +22,10 @@ const PassSlidesArrows = props => {
         >
             <FontAwesomeIcon 
                 icon={['fas', 'chevron-left']} 
-                // size="3x"
                 onClick={() => props.passSlidesFn('previous')}
             />
             <FontAwesomeIcon 
                 icon={['fas', 'chevron-right']} 
-                // size="3x"
                 onClick={() => props.passSlidesFn('next')}
             />
         </div>

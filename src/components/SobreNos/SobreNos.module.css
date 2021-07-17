@@ -35,15 +35,10 @@
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
     .SobreNos-container > h1 {
         font-size: 3em;
-    }
-}
-
-@media (min-width: 1578px) {
-    .SobreNos-container > h1 {
-        padding-top: 30px;
+        padding-top: 73px;
     }
 }
 
