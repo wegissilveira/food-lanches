@@ -20,6 +20,7 @@
 .Review-container {
     margin: 0 20px;
     color: white;
+    /* width: 992px; */
 }
 
 @media (min-width: 480px) {

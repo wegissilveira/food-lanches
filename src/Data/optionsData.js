@@ -1,130 +1,130 @@
 const optionsData = [
     {
-        prod: 'Sanduíche 1',
+        prod: 'Hambúrguer Simples',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 2',
+        prod: 'X-Tudo',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 3',
+        prod: 'Mega Paulistão',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 4',
+        prod: 'Especial 3 Carnes',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 5',
+        prod: 'Natural Vegetal',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 6',
+        prod: 'Sanduíche Gelado',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 7',
+        prod: 'O Melhor do Mundo',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 8',
+        prod: 'Super Boi',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 9',
+        prod: 'Salmão no Pão',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 10',
+        prod: 'Hambúrguer Vegetariano',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 11',
+        prod: 'Hambúrguer de Frango',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 12',
+        prod: 'X-EGG',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 13',
+        prod: 'Carne Dupla',
         cat: 'sanduíches',
     },
     {
-        prod: 'Sanduíche 14',
+        prod: 'Especial da Semana',
         cat: 'sanduíches',
     },
     {
-        prod: 'Pizza 1',
+        prod: '3 Sabores',
         cat: 'pizzas',
     },
     {
-        prod: 'Pizza 2',
+        prod: 'Portuguesa',
         cat: 'pizzas',
     },
     {
-        prod: 'Pizza 3',
+        prod: '4 Queijos',
         cat: 'pizzas',
     },
     {
-        prod: 'Pizza 4',
+        prod: 'Margherita',
         cat: 'pizzas',
     },
     {
-        prod: 'Pizza 5',
+        prod: 'A Moda',
         cat: 'pizzas',
     },
     {
-        prod: 'Pizza 6',
+        prod: 'Calabresa',
         cat: 'pizzas',
     },
     {
-        prod: 'Pizza 7',
+        prod: 'Napolitana',
         cat: 'pizzas',
     },
     {
-        prod: 'Pizza 8',
+        prod: 'Milho com Baco',
         cat: 'pizzas',
     },
     {
-        prod: 'Pizza 9',
+        prod: 'Vegetariana',
         cat: 'pizzas',
     },
     {
-        prod: 'Bebida 1',
+        prod: 'Coca-Cola',
         cat: 'bebidas',
     },
     {
-        prod: 'Bebida 2',
+        prod: 'Fanta',
         cat: 'bebidas',
     },
     {
-        prod: 'Bebida 3',
+        prod: 'Suco Natural',
         cat: 'bebidas',
     },
     {
-        prod: 'Bebida 4',
+        prod: 'Água Mineral',
         cat: 'bebidas',
     },
     {
-        prod: 'Bebida 5',
+        prod: 'Chá Gelado',
         cat: 'bebidas',
     },
     {
-        prod: 'Bebida 6',
+        prod: 'Água Tônica',
         cat: 'bebidas',
     },
     {
-        prod: 'Bebida 7',
+        prod: 'Suco Del Valle',
         cat: 'bebidas',
     },
     {
-        prod: 'Bebida 8',
+        prod: 'Sprite',
         cat: 'bebidas',
     },
     {
-        prod: 'Bebida 9',
+        prod: 'Guaraná Antártica',
         cat: 'bebidas',
     },
 ]

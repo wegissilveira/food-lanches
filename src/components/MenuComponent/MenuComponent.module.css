@@ -11,7 +11,7 @@
     justify-content: space-between;
     background-color: rgba(204, 204, 204, 0.116);
     height: 50px;
-    width: 60%;
+    width: 80%;
     margin-bottom: 20px;
     margin-top: 20px;
     touch-action: none;
@@ -23,9 +23,9 @@
     -o-transition: 0.5s ease-in-out;
 }
 
-@media (min-width:1200px) {
+@media (min-width:768px) {
     .Menu-header {
-        margin-left: 20%;
+        margin-left: 10%;
         margin-bottom: unset;
         margin-top: unset;
         height: unset;
@@ -42,7 +42,7 @@
     cursor: pointer;
 }
 
-@media (min-width:1200px) {
+@media (min-width:768px) {
     .Header-item {
         align-items: baseline;
 

@@ -12,6 +12,7 @@ const ReviewsComponent = props => {
             <SliderComponent 
                 classStyle={classes['Reviews-container']}
                 sliderLength={props.reviews.length}
+                limitWidth={true}
             >
                 {
                     props.reviews.map((customer, i) => {

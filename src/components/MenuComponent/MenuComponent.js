@@ -33,19 +33,18 @@ const MenuComponent = props => {
                 el.style.color = '#F5C662'
                 el.classList.remove(classes['Header-item-alt'])
             }
-        })
+        })        
         
         if (headerTabIndex !== i) {
-            optionsRef.current.children[1].style = 'transform: translateX(0)'
-        }
-        
+            optionsRef.current.children[1].style.transform = 'translateX(0)'
+        }       
     }
 
     const headerItems = (
         <React.Fragment>
             <div 
                 className={[classes['Header-item'], classes['Header-item-alt']].join(' ')} 
-                onClick={windowWidth >= 1200 ? () => passMenuHandler(0) : null}
+                onClick={windowWidth >= 768 ? () => passMenuHandler(0) : null}
             >
                 <FontAwesomeIcon
                     icon={['fas', 'hamburger']} 
@@ -55,7 +54,7 @@ const MenuComponent = props => {
             </div>
             <div 
                 className={classes['Header-item']} 
-                onClick={windowWidth >= 1200 ? () => passMenuHandler(1) : null}
+                onClick={windowWidth >= 768 ? () => passMenuHandler(1) : null}
             >
                 <FontAwesomeIcon
                     icon={['fas', 'pizza-slice']} 
@@ -65,7 +64,7 @@ const MenuComponent = props => {
             </div>
             <div 
                 className={classes['Header-item']} 
-                onClick={windowWidth >= 1200 ? () => passMenuHandler(2) : null}
+                onClick={windowWidth >= 768 ? () => passMenuHandler(2) : null}
             >
                 <FontAwesomeIcon
                     icon={['fas', 'cocktail']} 
@@ -82,7 +81,7 @@ const MenuComponent = props => {
         
         <div className={classes['Menu-subContainer']} ref={optionsRef}>
 
-            { windowWidth < 1200 ? 
+            { windowWidth < 768 ? 
                     <SliderComponent
                         classStyle={classes['Menu-header']}
                         sliderLength={3}
@@ -90,6 +89,7 @@ const MenuComponent = props => {
                         arrows={false}
                         markers={false}
                         parent={true}
+                        header={true}
                     > {headerItems}
                     </SliderComponent> 
                 :
@@ -99,7 +99,6 @@ const MenuComponent = props => {
                     > {headerItems}
                     </div>
             }
-            
             <MenuOptionsComponent 
                 windowWidth={windowWidth}
                 headerTab={headerTab[headerTabIndex]}

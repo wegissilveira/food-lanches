@@ -7,8 +7,8 @@ import SliderMarkerComponent from './SliderMarkerComponent/SliderMarkerComponent
 const SliderComponent = props => {
 
     let [windowWidth, ] = React.useState(window.innerWidth)
-    let [reviewsWidth, setReviewsWidth] = React.useState(0)
-    let [reviewsIndex, setReviewIndex] = React.useState(0)
+    let [sliderWidth, setSliderWidth] = React.useState(0)
+    let [sliderIndex, setSliderIndex] = React.useState(0)
     let [translateValue, setTranslateValue] =  React.useState(0)
     
     let [initialPosition, setInitialPosition] = React.useState(null)
@@ -17,27 +17,28 @@ const SliderComponent = props => {
 
     const sliderRef = React.useRef()
 
+
     const sliderStyle = {
-        width: reviewsWidth,
+        width: sliderWidth,
         transform: `translateX(${translateValue}px)`
     }
-    
-    const passMenuHandler = dir => {
-        let newTranslateValue = parseInt((sliderRef.current.style.transform).match(/\d+/)[0])*-1
-        let newReviewIndex = reviewsIndex
 
-        if (dir === 'next' && newTranslateValue > ((reviewsWidth - windowWidth) * -1)) {
-            newTranslateValue = newTranslateValue - (windowWidth / 3)
-            newReviewIndex++
+    const passMenuHandler = dir => {
+        let newTranslateValue = parseFloat((sliderRef.current.style.transform).match(/[\d.]+/)[0])*-1
+        let newSliderIndex = sliderIndex
+
+        if (dir === 'next' && newTranslateValue > (Math.floor(sliderWidth - windowWidth) *-1)) {
+            newTranslateValue = newTranslateValue - (windowWidth / 3).toFixed(2)
+            newSliderIndex++
         } 
 
         if (dir === 'previous' && newTranslateValue < 0) {
-            newTranslateValue = newTranslateValue + (windowWidth / 3)
-            newReviewIndex--
+            newTranslateValue = newTranslateValue + parseFloat((windowWidth / 3).toFixed(2))
+            newSliderIndex--
         }
         
         setTranslateValue(newTranslateValue)
-        setReviewIndex(newReviewIndex)        
+        setSliderIndex(newSliderIndex)    
     }
 
     /* CONFIGURAÇÃO TOUCH */
@@ -54,32 +55,32 @@ const SliderComponent = props => {
             const diff = currentPosition - initialPosition
             let newTransform = transform + diff
             if (newTransform > 0) newTransform = 0
-            if (newTransform <= (reviewsWidth - windowWidth) * -1) newTransform = (reviewsWidth - windowWidth) * -1
+            if (newTransform <= (sliderWidth - windowWidth) * -1) newTransform = (sliderWidth - windowWidth) * -1
             sliderRef.current.style.transform = `translate(${newTransform}px)`
         }
     }
-
+    
     const passMenuTouchEnd = () => {
         setMoving(false)
         const sliderRefTransform = parseInt((sliderRef.current.style.transform).match(/\d+/)[0])
-        let newReviewIndex = reviewsIndex
+        let newReviewIndex = sliderIndex
         
         if (sliderRefTransform*-1 !== translateValue) {
             
             if (sliderRefTransform > (translateValue*-1) + (windowWidth/2)) {
                 sliderRef.current.style.transform = `translate(${translateValue - windowWidth}px)`
                 newReviewIndex++
-
+                
                 setTranslateValue((translateValue - windowWidth))
-                setReviewIndex(newReviewIndex)
+                setSliderIndex(newReviewIndex)
                 if (props.setIndex) props.setIndex(newReviewIndex)
                 
             } else if (sliderRefTransform < (translateValue*-1) - (windowWidth/2)) {
                 sliderRef.current.style.transform = `translate(${translateValue + windowWidth}px)`
                 newReviewIndex--
-
+                
                 setTranslateValue((translateValue + windowWidth))
-                setReviewIndex(newReviewIndex)
+                setSliderIndex(newReviewIndex)
                 if (props.setIndex) props.setIndex(newReviewIndex)
                 
             } else {
@@ -91,6 +92,7 @@ const SliderComponent = props => {
             }
         }
     }
+    
     
     React.useEffect(() => {
         const sliderEl = sliderRef.current
@@ -143,13 +145,37 @@ const SliderComponent = props => {
 
     React.useEffect(() => {
         let newWidth = windowWidth * props.sliderLength
-
+        
         if (windowWidth >= 1200) {
             newWidth = newWidth / 3
         }
         
-        setReviewsWidth(newWidth)
+        setSliderWidth(newWidth)
+
     }, [props.sliderLength, windowWidth])
+
+    React.useEffect(() => {
+        if (props.limitWidth) {
+            let childrenArray = Array.from(sliderRef.current.children)
+            childrenArray.forEach(el => {
+                if (windowWidth < 1200) {
+                    el.style.maxWidth = (windowWidth-40)+'px'
+                } else {
+                    el.style.maxWidth = (windowWidth/3.5)+'px'
+                }
+            })
+        }
+        
+    })
+
+    React.useEffect(() => {
+        let actualTranslate = parseFloat((sliderRef.current.style.transform).match(/[\d.]+/)[0])
+
+        if (actualTranslate === 0) {
+            setSliderIndex(0)
+            setTranslateValue(0)
+        }
+    })
     
 
 
@@ -172,7 +198,7 @@ const SliderComponent = props => {
             />
             <SliderMarkerComponent 
                 qtde={props.sliderLength} 
-                reviewsIndex={reviewsIndex}
+                reviewsIndex={sliderIndex}
                 markers={props.markers}
             />
         </React.Fragment>

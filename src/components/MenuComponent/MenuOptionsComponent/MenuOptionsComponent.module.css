@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     touch-action: none;
+    height: 181px;
     
     transition: 0.8s ease-in-out;
     -webkit-transition: 0.8s ease-in-out;
@@ -20,7 +21,7 @@
 
 .Options-container > div {
     width: 100%;
-    color: #fff;
+    color: #F5C662;
     font-weight: bold;
     font-size: 20px;
 

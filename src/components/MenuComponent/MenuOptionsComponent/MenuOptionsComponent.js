@@ -30,6 +30,13 @@ const MenuOptionsComponent = props => {
         setArrowsSize(arrows)
     }, [props.windowWidth, arrowsSize])
 
+    let styleTest = {
+        color: 'purple',
+        height: '300px',
+        width: '100%',
+        backgroundColor: 'white',
+        fontSize: '30px'
+    }
    
 
     return (
