@@ -8,7 +8,7 @@ import SliderComponent from '../../shared/SliderComponent/SliderComponent'
 
 const MenuOptionsComponent = props => {
 
-    let [arrowsSize, setArrowsSize] =  React.useState(3)
+    let [arrowsSize, setArrowsSize] = React.useState(3)
 
     let optionsArr = []
     optionsData.forEach(product => {

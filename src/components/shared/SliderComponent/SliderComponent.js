@@ -134,7 +134,7 @@ const SliderComponent = props => {
                 return () =>
                     sliderEl.removeEventListener('pointerup', passMenuTouchEnd);
             } else {
-                sliderEl.addEventListener('touchdown', passMenuTouchEnd)
+                sliderEl.addEventListener('touchdown', passMenuTouchEnd) // TOUCHDOWN NÃO EXISTE
                 return () =>
                     sliderEl.removeEventListener('touchdown', passMenuTouchEnd);
             }
@@ -181,6 +181,7 @@ const SliderComponent = props => {
 
     return (
         <React.Fragment>
+            <h1>TOUCHDOWN NÃO EXISTE</h1>
             <div 
                 className={props.classStyle}
                 style={sliderStyle}
