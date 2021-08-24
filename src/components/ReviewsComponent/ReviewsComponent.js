@@ -7,12 +7,15 @@ import SliderComponent from '../shared/SliderComponent/SliderComponent'
 
 const ReviewsComponent = props => {
 
+    let [windowWidth, ] = React.useState(window.innerWidth)
+
     return(
         <React.Fragment>
             <SliderComponent 
                 classStyle={classes['Reviews-container']}
                 sliderLength={props.reviews.length}
                 limitWidth={true}
+                arrows={windowWidth < 1366 ? false : true}
             >
                 {
                     props.reviews.map((customer, i) => {

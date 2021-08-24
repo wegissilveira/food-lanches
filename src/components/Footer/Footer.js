@@ -41,7 +41,7 @@ const Footer = props => {
                     </div>
                 </div>
                 <div className={classes['Footer-brand']}>
-                    <p>Desenvolvido por <span>Wegis Silveira</span></p>
+                    <p>Desenvolvido por <a href="https://www.wegis.com.br">Wegis Silveira</a></p>
                 </div>
             </div>
         </div>

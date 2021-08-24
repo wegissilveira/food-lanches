@@ -20,23 +20,29 @@ const SliderComponent = props => {
 
     const sliderStyle = {
         width: sliderWidth,
-        transform: `translateX(${translateValue}px)`
+        transform: `translateX(${translateValue}px)`,
+        touchAction: 'pan-y'
     }
 
     const passMenuHandler = dir => {
         let newTranslateValue = parseFloat((sliderRef.current.style.transform).match(/[\d.]+/)[0])*-1
         let newSliderIndex = sliderIndex
-
+        
         if (dir === 'next' && newTranslateValue > (Math.floor(sliderWidth - windowWidth) *-1)) {
-            newTranslateValue = newTranslateValue - (windowWidth / 3).toFixed(2)
+            newTranslateValue = windowWidth > 768 ? newTranslateValue - (windowWidth / 3).toFixed(2) : newTranslateValue - windowWidth
             newSliderIndex++
         } 
 
         if (dir === 'previous' && newTranslateValue < 0) {
-            newTranslateValue = newTranslateValue + parseFloat((windowWidth / 3).toFixed(2))
+            newTranslateValue = windowWidth > 768 ? newTranslateValue + parseFloat((windowWidth / 3).toFixed(2)) : newTranslateValue + windowWidth
             newSliderIndex--
         }
+
+        if (props.parent) {
+            sliderRef.current.parentNode.children[3].style.transform = 'translateX(0)'
+        }
         
+        if (props.setIndex) props.setIndex(newSliderIndex)
         setTranslateValue(newTranslateValue)
         setSliderIndex(newSliderIndex)    
     }
@@ -86,26 +92,22 @@ const SliderComponent = props => {
             } else {
                 sliderRef.current.style.transform = `translate(${translateValue}px)`
             }
-
-            if (props.parent) {
-                sliderRef.current.parentNode.children[3].style.transform = 'translateX(0)'
-            }
         }
     }
     
     
     React.useEffect(() => {
         const sliderEl = sliderRef.current
-        if (windowWidth < 1200) {
+        if (windowWidth < 1366) {
             if (window.PointerEvent) {
                 sliderEl.addEventListener('pointerdown', passMenuTouchStart)
                 return () =>
-                    sliderEl.removeEventListener('pointerdown', passMenuTouchStart);
+                    sliderEl.removeEventListener('pointerdown', passMenuTouchStart)
 
             } else {
-                sliderEl.addEventListener('touchdown', passMenuTouchStart)
+                sliderEl.addEventListener('touchstart', passMenuTouchStart)
                 return () =>
-                    sliderEl.removeEventListener('touchdown', passMenuTouchStart);
+                    sliderEl.removeEventListener('touchstart', passMenuTouchStart)
             }
         }
 
@@ -113,30 +115,30 @@ const SliderComponent = props => {
 
     React.useEffect(() => {
         const sliderEl = sliderRef.current
-        if (windowWidth < 1200) {
+        if (windowWidth < 1366) {
             if (window.PointerEvent) {
                 sliderEl.addEventListener('pointermove', passMenuTouchMove)
                 return () =>
-                    sliderEl.removeEventListener('pointermove', passMenuTouchMove);
+                    sliderEl.removeEventListener('pointermove', passMenuTouchMove)
             } else {
                 sliderEl.addEventListener('touchmove', passMenuTouchMove)
                 return () =>
-                    sliderEl.removeEventListener('touchmove', passMenuTouchMove);
+                    sliderEl.removeEventListener('touchmove', passMenuTouchMove)
             }
         }
     })
 
     React.useEffect(() => {
         const sliderEl = sliderRef.current
-        if (windowWidth < 1200) {
+        if (windowWidth < 1366) {
             if (window.PointerEvent) {
                 sliderEl.addEventListener('pointerup', passMenuTouchEnd)
                 return () =>
                     sliderEl.removeEventListener('pointerup', passMenuTouchEnd);
             } else {
-                sliderEl.addEventListener('touchdown', passMenuTouchEnd) // TOUCHDOWN NÃO EXISTE
+                sliderEl.addEventListener('touchend', passMenuTouchEnd)
                 return () =>
-                    sliderEl.removeEventListener('touchdown', passMenuTouchEnd);
+                    sliderEl.removeEventListener('touchend', passMenuTouchEnd);
             }
         }
     })
@@ -146,7 +148,7 @@ const SliderComponent = props => {
     React.useEffect(() => {
         let newWidth = windowWidth * props.sliderLength
         
-        if (windowWidth >= 1200) {
+        if (windowWidth >= 1366) {
             newWidth = newWidth / 3
         }
         
@@ -158,14 +160,13 @@ const SliderComponent = props => {
         if (props.limitWidth) {
             let childrenArray = Array.from(sliderRef.current.children)
             childrenArray.forEach(el => {
-                if (windowWidth < 1200) {
+                if (windowWidth < 1366) {
                     el.style.maxWidth = (windowWidth-40)+'px'
                 } else {
                     el.style.maxWidth = (windowWidth/3.5)+'px'
                 }
             })
         }
-        
     })
 
     React.useEffect(() => {
@@ -175,25 +176,23 @@ const SliderComponent = props => {
             setSliderIndex(0)
             setTranslateValue(0)
         }
-    })
+    })    
+
     
-
-
     return (
         <React.Fragment>
-            <h1>TOUCHDOWN NÃO EXISTE</h1>
             <div 
                 className={props.classStyle}
                 style={sliderStyle}
                 ref={sliderRef}
             >
                 {props.children}
-                
             </div>
             <PassSlidesArrows 
-                passSlidesFn={arg => passMenuHandler(arg)} 
+                passSlidesFn={dir => passMenuHandler(dir)} 
                 color={props.arrowsColor}
                 bt={props.arrowsPosition}
+                arrowTop={props.arrowTop}
                 size={props.arrowsSize}
                 arrows={props.arrows}
             />

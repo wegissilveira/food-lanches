@@ -39,10 +39,7 @@ library.add(
   faChevronRight
 )
 
-
-
 function App() {
-
   return (
     <Layout />
   );

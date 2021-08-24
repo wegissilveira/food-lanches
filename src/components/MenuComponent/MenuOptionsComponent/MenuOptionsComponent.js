@@ -9,6 +9,7 @@ import SliderComponent from '../../shared/SliderComponent/SliderComponent'
 const MenuOptionsComponent = props => {
 
     let [arrowsSize, setArrowsSize] = React.useState(3)
+    let [windowWidth, ] = React.useState(window.innerWidth)
 
     let optionsArr = []
     optionsData.forEach(product => {
@@ -29,14 +30,6 @@ const MenuOptionsComponent = props => {
 
         setArrowsSize(arrows)
     }, [props.windowWidth, arrowsSize])
-
-    let styleTest = {
-        color: 'purple',
-        height: '300px',
-        width: '100%',
-        backgroundColor: 'white',
-        fontSize: '30px'
-    }
    
 
     return (
@@ -48,6 +41,7 @@ const MenuOptionsComponent = props => {
                 arrowsPosition={'-35px'}
                 arrowsSize={arrowsSize}
                 markers={false}
+                arrows={windowWidth < 1366 ? false : true}
             >
 
                 {

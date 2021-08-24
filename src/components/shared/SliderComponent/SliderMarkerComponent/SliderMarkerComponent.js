@@ -27,7 +27,7 @@ const SliderMarkerComponent = props => {
                         return <div 
                                     key={i}
                                     className={classes['SliderMarkers-marker']}
-                                    style={windowWidth >= 1200 ? 
+                                    style={windowWidth >= 1366 ? 
                                             (i <= props.reviewsIndex + 2 && i > props.reviewsIndex - 1 ? 
                                                 {backgroundColor: '#713320'} : 
                                                 {backgroundColor: '#fff'}

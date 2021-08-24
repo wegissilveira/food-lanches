@@ -3,9 +3,9 @@
     color: #F5C662;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Contact-container {
-        height: 80vh;
+        height: 95vh;
         display: flex;
         align-items: center;
     }
@@ -21,7 +21,7 @@
     margin: 0 10px;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Contact-subContainer {
         width: 50%;
         margin-left: 25%;
@@ -39,7 +39,7 @@
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1366px) {
     .Contact-subContainer h1 {
         padding-top: 63px;
     }
@@ -71,6 +71,12 @@
     }
 }
 
+@media (min-width: 1920px) {
+    .Contact-subContainer p {
+        font-size: 1.8em;
+    }
+}
+
 .Contact-header {
     width: 80%;
     margin-left: 10%;
@@ -90,7 +96,7 @@
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1366px) {
     .Contact-header {
         width: 100%;
         margin-left: 0;
@@ -116,7 +122,7 @@
    color: #0C5506;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Contact-header div {
         justify-content: unset;
     }
@@ -166,7 +172,7 @@ textarea {
     height: 80px;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     input{
         font-size: 0.9em;
     }
@@ -188,6 +194,19 @@ textarea {
     }
 }
 
+@media (min-width:1920px) {
+    input{
+        height: 50px;
+        font-size: 1.5em;
+    }
+
+    textarea {
+        height: 140px;
+        font-size: 1.9em;
+        font-weight: 400;
+    }
+}
+
 button {
     margin: 15px 0;
     height: 40px;
@@ -203,7 +222,7 @@ button {
     -o-border-radius: 3px;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     button {
         font-size: 1em;
     }
@@ -213,5 +232,12 @@ button {
     button {
         font-size: 1.2em;
         height: 40px;
+    }
+}
+
+@media (min-width:1920px) {
+    button {
+        font-size: 1.5em;
+        height: 60px;
     }
 }

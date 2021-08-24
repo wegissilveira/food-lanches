@@ -6,13 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const PassSlidesArrows = props => {
-    let [windowWidth, ] = React.useState(window.innerWidth)
-
     const style={
         color: props.color,
         bottom: props.bt,
+        top: props.arrowTop,
         fontSize: props.size !== undefined ? props.size+'em' : '3em',
-        display: props.arrows === false || windowWidth < 1200 ? 'none' : 'flex'
+        display: props.arrows ? 'flex' : 'none'
     }    
 
     return (

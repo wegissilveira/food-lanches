@@ -75,7 +75,6 @@ const MenuComponent = props => {
         </React.Fragment>
     )
 
-
     
     return (
         
@@ -86,7 +85,9 @@ const MenuComponent = props => {
                         classStyle={classes['Menu-header']}
                         sliderLength={3}
                         setIndex={i => setIndexCallBack(i)}
-                        arrows={false}
+                        arrows={true}
+                        arrowTop={'10px'}
+                        arrowsColor={'#F5C662'}
                         markers={false}
                         parent={true}
                         header={true}

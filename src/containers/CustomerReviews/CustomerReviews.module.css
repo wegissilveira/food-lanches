@@ -5,15 +5,27 @@
     align-items: center;
 }
 
-@media (min-width:1200px) {
+@media (min-width:414px) {
     .Reviews-section {
-        height: 60vh;
+        height: 30vh;
+    }
+}
+
+@media (min-width:1366px) {
+    .Reviews-section {
+        height: 70vh;
     }
 }
 
 @media (min-width:1578px) {
     .Reviews-section {
         height: 70vh;
+    }
+}
+
+@media (min-width:1920px) {
+    .Reviews-section {
+        height: 50vh;
     }
 }
 
@@ -25,7 +37,7 @@
     overflow: hidden;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Reviews-section--container {
         height: 90%;
         width: 100%;

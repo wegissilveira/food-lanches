@@ -5,7 +5,19 @@
     position: relative;
 }
 
-@media (min-width:1200px) {
+@media (min-width:414px) {
+    .Footer-container {
+        height: 20vh;
+    }
+}
+
+@media (min-width:1366px) {
+    .Footer-container {
+        height: 40vh;
+    }
+}
+
+@media (min-width:1366px) {
     .Footer-subContainer {
         padding-top: 30px;
     }
@@ -15,7 +27,7 @@
     display: none;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Footer-info--container {
         display: flex;
         justify-content: space-between;
@@ -25,6 +37,7 @@
 
     .Footer-info--container > div {
         width: 40%;
+        font-size: 1.2em;
     }
 
     .Footer-info--container > div:first-of-type {
@@ -32,9 +45,9 @@
     }
 }
 
-@media (min-width:1578px) {
+@media (min-width:1920px) {
     .Footer-info--container > div {
-        font-size: 1.2em;
+        font-size: 2em;
     }
 }
 
@@ -44,7 +57,7 @@
     text-align: center;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Footer-subContainer h2 {
         text-align: left;
     }
@@ -66,7 +79,7 @@
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1366px) {
     .Footer-icons--container {
         width: 80%;
         margin-left: 0;
@@ -103,7 +116,20 @@
     text-align: center;
 }
 
-.Footer-brand span {
+@media (min-width:768px) {
+    .Footer-brand p {
+        font-size: 1.3em;
+    }
+}
+
+@media (min-width:1920px) {
+    .Footer-brand p {
+        font-size: 1.7em;
+    }
+}
+
+.Footer-brand a {
+    color: #713320;
     text-decoration: underline;
     cursor: pointer;
 }

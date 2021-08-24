@@ -30,8 +30,6 @@ const Navigation = props => {
           window.removeEventListener('scroll', changeNavBar);
     }, []);
 
-
-
     return (
         <div style={navbarStyle} className={classes['Navigation-container']}>
             <Logo />

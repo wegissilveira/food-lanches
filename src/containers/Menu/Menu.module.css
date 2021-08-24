@@ -1,17 +1,18 @@
 .Menu-container {
     background-color: #3E2113;
     overflow: hidden;
+    position: relative;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Menu-container {
-        height: 80vh;
+        height: 95vh;
     }
 }
 
-@media (min-width:1578px) {
+@media (min-width:1920px) {
     .Menu-container {
-        height: 95vh;
+        height: 65vh;
     }
 }
 
@@ -22,7 +23,7 @@
     text-align: center;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Menu-container > h1 {
         padding-top: 73px;
     }

@@ -61,7 +61,7 @@
     text-align: center;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Burger-blockOne > div {
         width: 90%;
         margin-left: 5%;
@@ -81,7 +81,7 @@
     background-color: #d3971525;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Burger-header {
         background-color: #d3971525;
         height: 50%;
@@ -103,6 +103,12 @@
     }
 }
 
+@media (min-width:1920px) {
+    .Burger-header h1 {
+        font-size: 2.5em;
+    }
+}
+
 .Burger-header .Header-pizza {
     color: #991C1E;
 }
@@ -119,6 +125,12 @@
     }
 }
 
+@media (min-width:1920px) {
+    .Burger-header p {
+        font-size: 1.8em;
+    }
+}
+
 .Burger-blockOne--sub img {
     max-width: 100%;
     margin-bottom: 30px;
@@ -128,7 +140,7 @@
     display: none;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Burger-blockOne--sub img:first-of-type {
         display: none;
     }
@@ -151,11 +163,7 @@
     justify-content: space-between;
 }
 
-@media (min-width:1200px) {
-    .Burger-blockTwo {
-        height: 65vh;
-    }
-
+@media (min-width:1366px) {
     .Burger-blockTwo > div {
         padding-top: 6.5%;
     }
@@ -171,11 +179,17 @@
     }
 }
 
+@media (min-width:1920px) {
+    .Burger-blockTwo {
+        height: 65vh;
+    }
+}
+
 .Burger-header--lanches {
     margin-right: 10px;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Burger-header--lanches {
         text-align: center;
     }
@@ -190,13 +204,23 @@
     color: #fff;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Burger-header--lanches h1 {
         font-size: 2.2em;
     }
 
     .Burger-header--lanches p {
         font-size: 1.5em;
+    }
+}
+
+@media (min-width:1920px) {
+    .Burger-header--lanches h1 {
+        font-size: 2.5em;
+    }
+
+    .Burger-header--lanches p {
+        font-size: 1.8em;
     }
 }
 
@@ -209,7 +233,7 @@
     display: none;
 }
 
-@media (min-width:1200px) {
+@media (min-width:1366px) {
     .Burger-blockTwo  img:first-of-type {
         display: none;
     }

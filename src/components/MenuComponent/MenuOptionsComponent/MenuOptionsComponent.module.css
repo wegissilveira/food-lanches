@@ -1,7 +1,6 @@
 .Options-container {
     display: flex;
     justify-content: space-between;
-    touch-action: none;
     height: 181px;
     
     transition: 0.8s ease-in-out;

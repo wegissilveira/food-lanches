@@ -1,7 +1,6 @@
 .Reviews-container {
     display: flex;
     justify-content: space-between;
-    touch-action: none;
     
     transition: 0.5s;
     -webkit-transition: 0.5s;

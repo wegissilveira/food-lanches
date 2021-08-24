@@ -4,7 +4,7 @@
     justify-content: center;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1366px) {
     .Navigation-container {
         position: fixed;
         width: 94%;
@@ -17,10 +17,10 @@
         -moz-transition: 0.3s;
         -ms-transition: 0.3s;
         -o-transition: 0.3s;
-}
+    }
 
     /*Essas div children são os componentes Logo e MenuNavigation*/
-    .Navigation-container  > div {
+    .Navigation-container > div {
         padding: 10px 20px;
     }
 }

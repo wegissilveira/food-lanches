@@ -6,11 +6,11 @@
 
 @media (min-width: 768px) {
     .SobreNos-container {
-        height: 45vh;
+        height: 30vh;
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1366px) {
     .SobreNos-container {
         background-color: #991C1E;
         height: auto;
@@ -29,7 +29,7 @@
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1366px) {
     .SobreNos-container > h1 {
         padding-top: 60px;
     }
@@ -52,9 +52,15 @@
     font-style: italic;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1366px) {
     .SobreNos-container > p {
         font-size: 1.5em;
+    }
+}
+
+@media (min-width: 1920px) {
+    .SobreNos-container > p {
+        font-size: 2em;
     }
 }
 
@@ -64,7 +70,7 @@
     display: none;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1366px) {
     .SobreNos-container > img {
         display: inline;
     }
