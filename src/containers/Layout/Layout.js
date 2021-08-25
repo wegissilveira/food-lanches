@@ -41,9 +41,6 @@ class Layout extends Component {
             sessionStorage.setItem('rendered', true)
         }, 1000)
 
-        if (this.resizeElement.current) {
-
-        }
         this.observer.observe(this.resizeElement.current)
     }
     
