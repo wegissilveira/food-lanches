@@ -3,7 +3,7 @@
 <table>
 <tr>
 <td>
- A beautiful one0page React App. Built to be pretty and simple, there is no too much information, there is no too little neither, there is precisely what is necessary to tell what this page is about. Simple and yet bold. 
+ A beautiful one-page React App. Built to be pretty and simple, there is no too much information, there is no too little neither, there is precisely what is necessary to tell what this page is about. Simple and yet bold. 
 </tr>
 </table>
 
@@ -29,7 +29,7 @@ Here is a working live demo :  https://www.wegis.com.br/food-lanches
 
 
 ## Mobile support
-<em>Made For You</em> is compatible with devices of all sizes.
+<em>Food Lanches</em> is compatible with devices of all sizes.
 
 ![](https://github.com/wegissilveira/food-lanches/blob/master/images-demo/mobile.png)
 
